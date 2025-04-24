@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,22 +10,30 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField]
     private Grid grid;
     private Vector3Int _playerTile;
-    private Vector2 mouseNormal;
+
+    [SerializeField]
+    private CropScriptableObject selectedCrop;
+
+    private Vector3 _mouseTilePos;
+    private Vector3Int selectedTile;
+
+    public void OnInteract(InputValue value)
+    {
+        bool isPressed = value.Get<float>() == 1 ? true : false;
+        Debug.Log(isPressed);
+        CropManager.instance.PlantCrop((Vector2Int)selectedTile, selectedCrop);
+    }
 
     public void OnMousePos(InputValue value)
     {
         Vector2 mousePos = value.Get<Vector2>();
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
-        //Vector3 selectionInt = new Vector3(Mathf.RoundToInt(mouseWorldPos.x + 0.5f) - 0.5f, Mathf.RoundToInt(mouseWorldPos.y + 0.5f) - 0.5f);
-
-        //selectionOverlay.transform.position = selectionInt;
-        mouseNormal = (mouseWorldPos - transform.position).normalized;
-        Debug.Log(mouseNormal);
+        selectedTile = grid.WorldToCell(Camera.main.ScreenToWorldPoint(mousePos));
+        _mouseTilePos = grid.GetCellCenterWorld(selectedTile);
     }
 
     private void Update()
     {
         _playerTile = grid.WorldToCell(transform.position);
-        selectionOverlay.transform.position = grid.CellToWorld(_playerTile) + new Vector3(0.5f, 0.5f);
+        selectionOverlay.transform.position = _mouseTilePos;
     }
 }
