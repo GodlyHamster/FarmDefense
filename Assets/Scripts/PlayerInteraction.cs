@@ -17,26 +17,27 @@ public class PlayerInteraction : MonoBehaviour
     private Vector3 _mouseTilePos;
     private Vector3Int selectedTile;
 
-    private string _selectedTool = "Seeds";
+    [SerializeReference]
+    private EquipableItem _selectedTool = new SeedsEquipable();
 
     public void OnInteract(InputValue value)
     {
         bool isPressed = value.Get<float>() == 1 ? true : false;
 
         if (!isPressed) return;
-        if (_selectedTool == "Seeds")
+        if (_selectedTool is SeedsEquipable)
         {
-            CropManager.instance.PlantCrop((Vector2Int)selectedTile, selectedCrop);
+            _selectedTool.Use((Vector2Int)selectedTile, gameObject);
+            //CropManager.instance.PlantCrop((Vector2Int)selectedTile, selectedCrop);
         }
-        if (_selectedTool == "Water")
-        {
-            CropManager.instance.WaterCrop((Vector2Int)selectedTile, 8f);
-        }
-
-        if (_selectedTool == "Harvest")
-        {
-            CropManager.instance.HarvestCrop((Vector2Int)selectedTile);
-        }
+        //if (_selectedTool == "Water")
+        //{
+        //    CropManager.instance.WaterCrop((Vector2Int)selectedTile, 8f);
+        //}
+        //if (_selectedTool == "Harvest")
+        //{
+        //    CropManager.instance.HarvestCrop((Vector2Int)selectedTile);
+        //}
     }
 
     public void OnMousePos(InputValue value)
@@ -53,21 +54,23 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SelectTool("Seeds");
+            SelectTool(new SeedsEquipable());
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SelectTool("Water");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SelectTool("Harvest");
-        }
+        //else if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    SelectTool("Water");
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    SelectTool("Harvest");
+        //}
     }
 
-    private void SelectTool(string tool)
+    private void SelectTool(EquipableItem tool)
     {
+        _selectedTool.Dequip();
         _selectedTool = tool;
+        _selectedTool.Equip();
         Debug.Log($"Selected {tool}");
     }
 }

@@ -18,8 +18,7 @@ public class CropManager : MonoBehaviour
     private List<Vector2Int> availabeLand = new List<Vector2Int>();
     private Dictionary<Vector2Int, Crop> plantedCrops = new Dictionary<Vector2Int, Crop>();
 
-    public delegate void CropHarvested(CropScriptableObject crop, int amount);
-    public static CropHarvested OnCropHarvested;
+    public static event Action<CropScriptableObject, int> OnCropHarvested;
 
     private void Awake()
     {
