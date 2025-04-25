@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,9 @@ public class CropManager : MonoBehaviour
     [SerializeField]
     private List<Vector2Int> availabeLand = new List<Vector2Int>();
     private Dictionary<Vector2Int, Crop> plantedCrops = new Dictionary<Vector2Int, Crop>();
+
+    public delegate void CropHarvested(CropScriptableObject crop, int amount);
+    public static CropHarvested OnCropHarvested;
 
     private void Awake()
     {
@@ -43,8 +47,10 @@ public class CropManager : MonoBehaviour
         if (!plantedCrops.ContainsKey(pos)) return;
         if (plantedCrops[pos].harvestable)
         {
-            Debug.Log($"Harvested a {plantedCrops[pos].cropType.name}");
-            Destroy(plantedCrops[pos].linkedObject);
+            Crop harvestedCrop = plantedCrops[pos];
+            Debug.Log($"Harvested a {harvestedCrop.cropType.name}");
+            OnCropHarvested?.Invoke(harvestedCrop.cropType, 5);
+            Destroy(harvestedCrop.linkedObject);
             plantedCrops.Remove(pos);
         }
     }
