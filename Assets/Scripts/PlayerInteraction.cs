@@ -17,11 +17,26 @@ public class PlayerInteraction : MonoBehaviour
     private Vector3 _mouseTilePos;
     private Vector3Int selectedTile;
 
+    private string _selectedTool = "Seeds";
+
     public void OnInteract(InputValue value)
     {
         bool isPressed = value.Get<float>() == 1 ? true : false;
-        Debug.Log(isPressed);
-        CropManager.instance.PlantCrop((Vector2Int)selectedTile, selectedCrop);
+
+        if (!isPressed) return;
+        if (_selectedTool == "Seeds")
+        {
+            CropManager.instance.PlantCrop((Vector2Int)selectedTile, selectedCrop);
+        }
+        if (_selectedTool == "Water")
+        {
+            CropManager.instance.WaterCrop((Vector2Int)selectedTile, 8f);
+        }
+
+        if (_selectedTool == "Harvest")
+        {
+            CropManager.instance.HarvestCrop((Vector2Int)selectedTile);
+        }
     }
 
     public void OnMousePos(InputValue value)
@@ -35,5 +50,24 @@ public class PlayerInteraction : MonoBehaviour
     {
         _playerTile = grid.WorldToCell(transform.position);
         selectionOverlay.transform.position = _mouseTilePos;
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SelectTool("Seeds");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SelectTool("Water");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SelectTool("Harvest");
+        }
+    }
+
+    private void SelectTool(string tool)
+    {
+        _selectedTool = tool;
+        Debug.Log($"Selected {tool}");
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 [Serializable]
 public class GrowthStage
 {
-    public Sprite image;
     public float growthTime;
+    public Sprite crop;
+    public Sprite wateredCrop;
 }

@@ -6,6 +6,6 @@ public class CropScriptableObject : ScriptableObject
 {
     public string cropName;
     public List<GrowthStage> growthStages;
-    [Range(0f, 1f)]
-    public float dehydrationMult;
+    [Range(0.5f, 2f)]
+    public float dehydrationMult = 1f;
 }

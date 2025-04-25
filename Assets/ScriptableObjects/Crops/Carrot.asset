@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cropName: Carrot
   growthStages:
-  - image: {fileID: 0}
-    growthTime: 5
-  - image: {fileID: 0}
-    growthTime: 5
-  - image: {fileID: 0}
-    growthTime: 5
+  - growthTime: 0
+    crop: {fileID: 3612943997526221858, guid: d31f432f1c19f114da0de2886e15f035, type: 3}
+    wateredCrop: {fileID: 826812845, guid: d31f432f1c19f114da0de2886e15f035, type: 3}
+  - growthTime: 3
+    crop: {fileID: 1858281527, guid: d31f432f1c19f114da0de2886e15f035, type: 3}
+    wateredCrop: {fileID: -667706929, guid: d31f432f1c19f114da0de2886e15f035, type: 3}
+  - growthTime: 7
+    crop: {fileID: -1082023286, guid: d31f432f1c19f114da0de2886e15f035, type: 3}
+    wateredCrop: {fileID: -75684616, guid: d31f432f1c19f114da0de2886e15f035, type: 3}
+  dehydrationMult: 1

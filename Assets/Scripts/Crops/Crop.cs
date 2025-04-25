@@ -2,24 +2,64 @@ using UnityEngine;
 
 public class Crop
 {
-    public CropScriptableObject cropType;
+    public CropScriptableObject cropType { get; private set; }
+    public bool harvestable { get; private set; } = false;
 
-    public bool isWatered { get; private set; }
-    private float _wateredTimer;
+    private bool _isWatered = false;
+    public bool IsWatered { 
+        get { return _isWatered; } 
+        private set
+        {
+            _isWatered = value;
+            UpdateCropSprite();
+        }
+    }
 
-    public Crop(CropScriptableObject cropType)
+    private float _wateredTimer = 0f;
+    private float _totalGrowthTime = 0f;
+    private int _currentGrowthStage = 0;
+
+    public GameObject linkedObject {get; private set;}
+    private SpriteRenderer cropSpriteRenderer;
+
+    public Crop(CropScriptableObject cropType, GameObject linkedObject)
     {
         this.cropType = cropType;
+        this.linkedObject = linkedObject;
+        cropSpriteRenderer = this.linkedObject.GetComponent<SpriteRenderer>();
+            UpdateCropSprite();
     }
 
     public void UpdateCrop()
     {
-        if (_wateredTimer < 0) return;
-        _wateredTimer -= Time.deltaTime;
+        //Debug.Log($"stage: {_currentGrowthStage}/{cropType.growthStages.Count - 1}, watered: {_isWatered}");
+        if (_isWatered)
+        {
+            _wateredTimer -= Time.deltaTime;
+            _totalGrowthTime += Time.deltaTime;
+            if (_wateredTimer < 0) IsWatered = false;
+        }
+
+        if (_currentGrowthStage == cropType.growthStages.Count - 1)
+        {
+            harvestable = true;
+            return;
+        }
+        if (_totalGrowthTime >= cropType.growthStages[_currentGrowthStage + 1].growthTime)
+        {
+            _currentGrowthStage++;
+            UpdateCropSprite();
+        }
     }
 
-    public void WaterCrop()
+    public void WaterCrop(float hydrationValue)
     {
+        IsWatered = true;
+        _wateredTimer = hydrationValue;
+    }
 
+    private void UpdateCropSprite()
+    {
+        cropSpriteRenderer.sprite = _isWatered ? cropType.growthStages[_currentGrowthStage].wateredCrop : cropType.growthStages[_currentGrowthStage].crop;
     }
 }

@@ -11,6 +11,9 @@ public class CropManager : MonoBehaviour
     private bool debugLand;
 
     [SerializeField]
+    private GameObject cropPrefab;
+
+    [SerializeField]
     private List<Vector2Int> availabeLand = new List<Vector2Int>();
     private Dictionary<Vector2Int, Crop> plantedCrops = new Dictionary<Vector2Int, Crop>();
 
@@ -21,10 +24,29 @@ public class CropManager : MonoBehaviour
 
     public bool PlantCrop(Vector2Int pos, CropScriptableObject cropType)
     {
+        if (!availabeLand.Contains(pos)) return false;
         if (plantedCrops.ContainsKey(pos)) return false;
-        Crop crop = new Crop(cropType);
+        GameObject cropObject = Instantiate(cropPrefab, grid.GetCellCenterWorld((Vector3Int)pos), Quaternion.identity);
+        Crop crop = new Crop(cropType, cropObject);
         plantedCrops.Add(pos, crop);
         return true;
+    }
+
+    public void WaterCrop(Vector2Int pos, float hydrationValue)
+    {
+        if (!plantedCrops.ContainsKey(pos)) return;
+        plantedCrops[pos].WaterCrop(hydrationValue);
+    }
+
+    public void HarvestCrop(Vector2Int pos)
+    {
+        if (!plantedCrops.ContainsKey(pos)) return;
+        if (plantedCrops[pos].harvestable)
+        {
+            Debug.Log($"Harvested a {plantedCrops[pos].cropType.name}");
+            Destroy(plantedCrops[pos].linkedObject);
+            plantedCrops.Remove(pos);
+        }
     }
 
     private void Update()

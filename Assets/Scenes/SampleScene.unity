@@ -458,6 +458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 1954024927}
   debugLand: 0
+  cropPrefab: {fileID: 1152025649285748474, guid: 1dfa2a802c356d542b128ea9934fdf1e, type: 3}
   availabeLand:
   - {x: 0, y: 0}
   - {x: -1, y: 0}
