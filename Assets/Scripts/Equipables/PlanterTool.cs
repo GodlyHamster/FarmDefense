@@ -11,12 +11,12 @@ public class PlanterTool : EquipableItem
 
     public override void Equip()
     {
-        throw new System.NotImplementedException();
+        base.Equip();
     }
 
     public override void Dequip()
     {
-        throw new System.NotImplementedException();
+        base.Dequip();
     }
 
     public override void Use(Vector2Int useLocation, GameObject user)
