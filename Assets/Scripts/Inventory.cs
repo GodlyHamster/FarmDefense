@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory instance;
+
     [SerializeField]
     private Transform inventoryUIContainer;
     [SerializeField]
@@ -20,6 +22,11 @@ public class Inventory : MonoBehaviour
     private void OnDisable()
     {
         CropManager.OnCropHarvested -= AddItem;
+    }
+
+    private void Awake()
+    {
+        instance = this;
     }
 
     public void AddItem(CropScriptableObject crop, int amount)
@@ -41,6 +48,16 @@ public class Inventory : MonoBehaviour
         }
 
         cropsAmount[crop].AddAmount(amount);
+    }
+
+    public bool RemoveAmount(CropScriptableObject crop, int amount)
+    {
+        if (cropsAmount.ContainsKey(crop))
+        {
+            cropsAmount[crop].RemoveAmount(amount);
+            return true;
+        }
+        return false;
     }
 }
 
@@ -70,6 +87,12 @@ public class InventoryItem
     public void AddAmount(int amount)
     {
         this.amount += amount;
+        amountText.text = this.amount.ToString();
+    }
+
+    public void RemoveAmount(int amount)
+    {
+        this.amount -= amount;
         amountText.text = this.amount.ToString();
     }
 }
