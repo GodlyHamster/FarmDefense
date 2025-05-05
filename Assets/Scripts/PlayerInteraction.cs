@@ -18,7 +18,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField]
     private List<EquipableItem> availableTools = new List<EquipableItem>();
     private LinkedList<EquipableItem> _toolSelection = new LinkedList<EquipableItem>();
-    private LinkedListNode<EquipableItem> _selectedItem;
+    private LinkedListNode<EquipableItem> _selectedTool;
 
     public void OnInteract(InputValue value)
     {
@@ -26,7 +26,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (!isPressed) return;
 
-        _selectedItem.Value.Use((Vector2Int)selectedTile, gameObject);
+        _selectedTool.Value.Use((Vector2Int)selectedTile, gameObject);
     }
 
     public void OnMousePos(InputValue value)
@@ -42,7 +42,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             _toolSelection.AddLast(item);
         }
-        _selectedItem = _toolSelection.First;
+        _selectedTool = _toolSelection.First;
     }
 
     private void Update()
@@ -52,13 +52,13 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _selectedItem.PreviousOrLast();
-            Debug.Log($"Selected {_selectedItem.Value.name}");
+            _selectedTool = _selectedTool.PreviousOrLast();
+            Debug.Log($"Selected {_selectedTool.Value.name}");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _selectedItem.NextOrFirst();
-            Debug.Log($"Selected {_selectedItem.Value.name}");
+            _selectedTool = _selectedTool.NextOrFirst();
+            Debug.Log($"Selected {_selectedTool.Value.name}");
         }
     }
 }

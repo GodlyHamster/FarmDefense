@@ -4072,11 +4072,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectionOverlay: {fileID: 1143425700}
   grid: {fileID: 1954024927}
-  selectedCrop: {fileID: 11400000, guid: b52e0cdc1b4fa6140b86917e17e7f7ba, type: 2}
   availableTools:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 519123e0b46a9474b905175e12db637b, type: 2}
+  - {fileID: 11400000, guid: c6db48f2c4df0eb4e925f562dc45c6be, type: 2}
+  - {fileID: 11400000, guid: d594f94e3d7206044a3a40f5a1272a34, type: 2}
 --- !u!1 &1901500858
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -25,5 +26,19 @@ public class Inventory : MonoBehaviour
         }
 
         cropsAmount[crop] += amount;
+    }
+}
+
+public class InventoryItem
+{
+    private CropScriptableObject crop;
+    private int amount;
+    private TextMeshProUGUI amountText;
+
+    public InventoryItem(CropScriptableObject crop, int amount, TextMeshProUGUI amountText)
+    {
+        this.crop = crop;
+        this.amount = amount;
+        this.amountText = amountText;
     }
 }

@@ -18,5 +18,6 @@ public class HarvestTool : EquipableItem
     public override void Use(Vector2Int useLocation, GameObject user)
     {
         base.Use(useLocation, user);
+        CropManager.instance.HarvestCrop(useLocation);
     }
 }
