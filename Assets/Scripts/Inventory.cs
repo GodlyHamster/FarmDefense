@@ -24,13 +24,19 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(CropScriptableObject crop, int amount)
     {
-        Debug.Log($"Added {amount} to {crop.name}");
         if (!cropsAmount.ContainsKey(crop))
         {
             GameObject itemContainer = Instantiate(inventoryItemPrefab, inventoryUIContainer);
             TextMeshProUGUI text = itemContainer.GetComponentInChildren<TextMeshProUGUI>();
-            InventoryItem inventoryItem = new InventoryItem(crop, amount, text, itemContainer);
-            cropsAmount.Add(crop, inventoryItem);
+            try
+            {
+                InventoryItem inventoryItem = new InventoryItem(crop, amount, text, itemContainer);
+                cropsAmount.Add(crop, inventoryItem);
+            }
+            catch
+            {
+                Destroy(itemContainer);
+            }
             return;
         }
 
