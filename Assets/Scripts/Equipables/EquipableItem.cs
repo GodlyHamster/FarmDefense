@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public abstract class EquipableItem
+public abstract class EquipableItem : ScriptableObject
 {
     public virtual void Equip() { }
     public virtual void Dequip() { }

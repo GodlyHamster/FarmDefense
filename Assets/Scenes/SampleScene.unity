@@ -4073,16 +4073,10 @@ MonoBehaviour:
   selectionOverlay: {fileID: 1143425700}
   grid: {fileID: 1954024927}
   selectedCrop: {fileID: 11400000, guid: b52e0cdc1b4fa6140b86917e17e7f7ba, type: 2}
-  _selectedTool:
-    rid: 3936646925983154243
-  references:
-    version: 2
-    RefIds:
-    - rid: 3936646925983154243
-      type: {class: SeedsEquipable, ns: , asm: Assembly-CSharp}
-      data:
-        seedList:
-        - {fileID: 11400000, guid: b52e0cdc1b4fa6140b86917e17e7f7ba, type: 2}
+  availableTools:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1901500858
 GameObject:
   m_ObjectHideFlags: 0

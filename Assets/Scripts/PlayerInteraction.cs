@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -11,33 +12,21 @@ public class PlayerInteraction : MonoBehaviour
     private Grid grid;
     private Vector3Int _playerTile;
 
-    [SerializeField]
-    private CropScriptableObject selectedCrop;
-
     private Vector3 _mouseTilePos;
     private Vector3Int selectedTile;
 
-    [SerializeReference]
-    private EquipableItem _selectedTool = new SeedsEquipable();
+    [SerializeField]
+    private List<EquipableItem> availableTools = new List<EquipableItem>();
+    private LinkedList<EquipableItem> _toolSelection = new LinkedList<EquipableItem>();
+    private LinkedListNode<EquipableItem> _selectedItem;
 
     public void OnInteract(InputValue value)
     {
         bool isPressed = value.Get<float>() == 1 ? true : false;
 
         if (!isPressed) return;
-        if (_selectedTool is SeedsEquipable)
-        {
-            _selectedTool.Use((Vector2Int)selectedTile, gameObject);
-            //CropManager.instance.PlantCrop((Vector2Int)selectedTile, selectedCrop);
-        }
-        //if (_selectedTool == "Water")
-        //{
-        //    CropManager.instance.WaterCrop((Vector2Int)selectedTile, 8f);
-        //}
-        //if (_selectedTool == "Harvest")
-        //{
-        //    CropManager.instance.HarvestCrop((Vector2Int)selectedTile);
-        //}
+
+        _selectedItem.Value.Use((Vector2Int)selectedTile, gameObject);
     }
 
     public void OnMousePos(InputValue value)
@@ -47,6 +36,15 @@ public class PlayerInteraction : MonoBehaviour
         _mouseTilePos = grid.GetCellCenterWorld(selectedTile);
     }
 
+    private void Start()
+    {
+        foreach (EquipableItem item in availableTools)
+        {
+            _toolSelection.AddLast(item);
+        }
+        _selectedItem = _toolSelection.First;
+    }
+
     private void Update()
     {
         _playerTile = grid.WorldToCell(transform.position);
@@ -54,23 +52,13 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SelectTool(new SeedsEquipable());
+            _selectedItem.PreviousOrLast();
+            Debug.Log($"Selected {_selectedItem.Value.name}");
         }
-        //else if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    SelectTool("Water");
-        //}
-        //else if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    SelectTool("Harvest");
-        //}
-    }
-
-    private void SelectTool(EquipableItem tool)
-    {
-        _selectedTool.Dequip();
-        _selectedTool = tool;
-        _selectedTool.Equip();
-        Debug.Log($"Selected {tool}");
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _selectedItem.NextOrFirst();
+            Debug.Log($"Selected {_selectedItem.Value.name}");
+        }
     }
 }

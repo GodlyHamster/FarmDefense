@@ -1,7 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
-public class SeedsEquipable : EquipableItem
+[Serializable]
+[CreateAssetMenu(fileName = "Planter", menuName = "ScriptableObjects/Tools/Planter", order = 0)]
+public class PlanterTool : EquipableItem
 {
     [SerializeField]
     private List<CropScriptableObject> seedList = new List<CropScriptableObject>();
@@ -18,6 +21,7 @@ public class SeedsEquipable : EquipableItem
 
     public override void Use(Vector2Int useLocation, GameObject user)
     {
-        throw new System.NotImplementedException();
+        if (seedList.Count == 0) return;
+        CropManager.instance?.PlantCrop(useLocation, seedList[0]);
     }
 }
