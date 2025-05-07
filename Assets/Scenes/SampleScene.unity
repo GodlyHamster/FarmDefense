@@ -4367,6 +4367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff60532654e849d448ff2362506138ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <maxHealth>k__BackingField: 5
+  targetLocation: {x: 0, y: 0, z: 0}
+  player: {fileID: 1338033100}
 --- !u!4 &1429330696
 Transform:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Carrot
   m_EditorClassIdentifier: 
   cropName: Carrot
-  itemSprite: {fileID: -1082023286, guid: d31f432f1c19f114da0de2886e15f035, type: 3}
+  itemSprite: {fileID: 21300000, guid: d5b3787bc69c5b644b32d5387d9bac41, type: 3}
   growthStages:
   - growthTime: 0
     crop: {fileID: 3612943997526221858, guid: d31f432f1c19f114da0de2886e15f035, type: 3}
