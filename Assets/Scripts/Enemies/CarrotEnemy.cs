@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class CarrotEnemy : Enemy
 {
-    [ContextMenu("Damage")]
-    public void OnHit()
+    [SerializeField]
+    private Vector3 targetLocation;
+
+    [SerializeField]
+    Transform player;
+
+    private void Update()
     {
-        RemoveHealth(1);
+        targetLocation = player.position;
+        Vector3 moveDirection = (targetLocation - transform.position).normalized;
+        transform.position += moveDirection * Time.deltaTime;
     }
 }
