@@ -2,11 +2,9 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/Tools/Weapon", order = 3)]
 public class Weapon : EquipableItem
 {
-    public CropScriptableObject ammoType;
-    public float firingCooldown = 0.3f; //Not implemented yet
+    public float useCooldown = 0.3f; //Not implemented yet
 
     public override void Equip()
     {
@@ -20,9 +18,6 @@ public class Weapon : EquipableItem
 
     public override void Use(Vector2Int useLocation, GameObject user)
     {
-        if (Inventory.instance.RemoveAmount(ammoType, 1))
-        {
-            Debug.Log($"We pewpew da {ammoType.name}");
-        }
+        base.Use(useLocation, user);
     }
 }

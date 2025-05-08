@@ -14,4 +14,10 @@ public class CarrotEnemy : Enemy
         Vector3 moveDirection = (targetLocation - transform.position).normalized;
         transform.position += moveDirection * Time.deltaTime;
     }
+
+    public override void Hit()
+    {
+        //hit animation stuffs here
+        RemoveHealth(1);
+    }
 }

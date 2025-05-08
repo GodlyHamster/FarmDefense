@@ -11,18 +11,23 @@ public abstract class Enemy : MonoBehaviour, IHealth
         health = maxHealth;
     }
 
-    public void AddHealth(int amount)
+    public virtual void AddHealth(int amount)
     {
         health += amount;
         if (health > maxHealth) health = maxHealth;
     }
 
-    public void RemoveHealth(int amount)
+    public virtual void RemoveHealth(int amount)
     {
         health -= amount;
         if (health <= 0)
         {
             Debug.Log($"{gameObject.name} is dead");
         }
+    }
+
+    public virtual void Hit()
+    {
+        Debug.Log($"{gameObject.name} got hit");
     }
 }
