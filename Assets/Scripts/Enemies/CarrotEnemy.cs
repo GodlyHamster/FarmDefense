@@ -18,6 +18,11 @@ public class CarrotEnemy : Enemy
     public override void Hit()
     {
         //hit animation stuffs here
+
         RemoveHealth(1);
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
