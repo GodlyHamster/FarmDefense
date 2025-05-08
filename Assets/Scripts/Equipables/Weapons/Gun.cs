@@ -27,8 +27,9 @@ public class Gun : Weapon
             return;
         }
 
-        float aimAngle = Vector2.Angle((Vector2)user.transform.position, (Vector2)useLocation);
-        Quaternion rotation = Quaternion.Euler(0, 0, aimAngle);
+        Vector3 direction = ((Vector2)useLocation - (Vector2)user.transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.Euler(0, 0, angle);
         Instantiate(bulletPrefab, user.transform.position, rotation);
     }
 }

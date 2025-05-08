@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolSprite: {fileID: 0}
   useCooldown: 0.3
+  ammoType: {fileID: 11400000, guid: b52e0cdc1b4fa6140b86917e17e7f7ba, type: 2}
   bulletPrefab: {fileID: 6221165455369942469, guid: a12537c9e5a3e844f9cb39769a4e6ec4, type: 3}
