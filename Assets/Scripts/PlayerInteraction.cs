@@ -43,6 +43,7 @@ public class PlayerInteraction : MonoBehaviour
             _toolSelection.AddLast(item);
         }
         _selectedTool = _toolSelection.First;
+        ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
     }
 
     private void Update()
@@ -53,11 +54,13 @@ public class PlayerInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             _selectedTool = _selectedTool.PreviousOrLast();
+            ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
             Debug.Log($"Selected {_selectedTool.Value.name}");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             _selectedTool = _selectedTool.NextOrFirst();
+            ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
             Debug.Log($"Selected {_selectedTool.Value.name}");
         }
     }
