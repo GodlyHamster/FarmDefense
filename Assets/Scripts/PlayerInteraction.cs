@@ -36,6 +36,26 @@ public class PlayerInteraction : MonoBehaviour
         _mouseTilePos = grid.GetCellCenterWorld(selectedTile);
     }
 
+    public void OnToolSelectNext(InputValue value)
+    {
+        float scroll = value.Get<float>();
+        if (scroll == 1)
+        {
+            _selectedTool = _selectedTool.NextOrFirst();
+            ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
+        }
+    }
+
+    public void OnToolSelectPrevious(InputValue value)
+    {
+        float scroll = value.Get<float>();
+        if (scroll == 1)
+        {
+            _selectedTool = _selectedTool.PreviousOrLast();
+            ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
+        }
+    }
+
     private void Start()
     {
         foreach (EquipableItem item in availableTools)
@@ -50,18 +70,5 @@ public class PlayerInteraction : MonoBehaviour
     {
         _playerTile = grid.WorldToCell(transform.position);
         selectionOverlay.transform.position = _mouseTilePos;
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _selectedTool = _selectedTool.PreviousOrLast();
-            ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
-            Debug.Log($"Selected {_selectedTool.Value.name}");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _selectedTool = _selectedTool.NextOrFirst();
-            ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
-            Debug.Log($"Selected {_selectedTool.Value.name}");
-        }
     }
 }

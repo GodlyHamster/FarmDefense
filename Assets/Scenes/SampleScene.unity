@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 12534557}
   - component: {fileID: 12534556}
   m_Layer: 5
-  m_Name: NextTool
+  m_Name: PreviousTool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 533552807}
   - component: {fileID: 533552806}
   m_Layer: 5
-  m_Name: PreviousTool
+  m_Name: NextTool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6650,8 +6650,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 41616687}
-  - {fileID: 12534555}
   - {fileID: 533552805}
+  - {fileID: 12534555}
   m_Father: {fileID: 873228345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -6672,8 +6672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedToolImage: {fileID: 41616688}
-  nextToolImage: {fileID: 12534556}
-  previousToolImage: {fileID: 533552806}
+  nextToolImage: {fileID: 533552806}
+  previousToolImage: {fileID: 12534556}
 --- !u!1 &1429330694
 GameObject:
   m_ObjectHideFlags: 0

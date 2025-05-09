@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044d0612867d5b04f92c791a726d6202, type: 3}
   m_Name: Harvester
   m_EditorClassIdentifier: 
-  toolSprite: {fileID: 3612943997526221858, guid: d31f432f1c19f114da0de2886e15f035, type: 3}
+  toolSprite: {fileID: 21300000, guid: 34bf4ac9f76a6cb42a556aa6eaecf362, type: 3}
