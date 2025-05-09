@@ -3,7 +3,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Vector3 moveDirection = Vector2.zero;
-    float bulletSpeed = 3f;
+    float bulletSpeed = 5f;
+
+    private float _aliveTime = 0f;
 
     private void Start()
     {
@@ -15,7 +17,11 @@ public class Bullet : MonoBehaviour
     {
         transform.position += moveDirection * bulletSpeed * Time.deltaTime;
 
-        //destroy bullet after X time or out of screen
+        _aliveTime += Time.deltaTime;
+        if (_aliveTime > 10f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

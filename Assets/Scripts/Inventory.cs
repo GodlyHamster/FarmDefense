@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
 
     public bool RemoveAmount(CropScriptableObject crop, int amount)
     {
-        if (cropsAmount.ContainsKey(crop))
+        if (cropsAmount.ContainsKey(crop) && cropsAmount[crop].Amount >= amount)
         {
             cropsAmount[crop].RemoveAmount(amount);
             return true;
@@ -65,6 +65,7 @@ public class InventoryItem
 {
     private CropScriptableObject crop;
     private int amount;
+    public int Amount { get { return amount; } }
     private TextMeshProUGUI amountText;
     private GameObject linkedObject;
 
