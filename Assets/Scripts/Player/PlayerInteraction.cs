@@ -26,25 +26,25 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Interact.performed += Interact_performed;
+        controls.Interact.performed += Interact;
         controls.MousePosition.performed += MousePos;
-        controls.ToolNext.performed += ToolNext_performed;
-        controls.ToolPrevious.performed += ToolPrevious_performed;
-        controls.ToolSubmenu.performed += ToolSubmenu_performed;
-        controls.ToolSubmenu.canceled += ToolSubmenu_performed;
+        controls.ToolNext.performed += ToolNext;
+        controls.ToolPrevious.performed += ToolPrevious;
+        controls.ToolSubmenu.performed += ToolSubmenu;
+        controls.ToolSubmenu.canceled += ToolSubmenu;
     }
 
     private void OnDisable()
     {
-        controls.Interact.performed -= Interact_performed;
+        controls.Interact.performed -= Interact;
         controls.MousePosition.performed -= MousePos;
-        controls.ToolNext.performed -= ToolNext_performed;
-        controls.ToolPrevious.performed -= ToolPrevious_performed;
-        controls.ToolSubmenu.performed -= ToolSubmenu_performed;
-        controls.ToolSubmenu.canceled -= ToolSubmenu_performed;
+        controls.ToolNext.performed -= ToolNext;
+        controls.ToolPrevious.performed -= ToolPrevious;
+        controls.ToolSubmenu.performed -= ToolSubmenu;
+        controls.ToolSubmenu.canceled -= ToolSubmenu;
     }
 
-    private void Interact_performed(InputAction.CallbackContext context)
+    private void Interact(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -59,7 +59,7 @@ public class PlayerInteraction : MonoBehaviour
         _mouseTilePos = grid.GetCellCenterWorld(selectedTile);
     }
 
-    private void ToolNext_performed(InputAction.CallbackContext context)
+    private void ToolNext(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -68,7 +68,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void ToolPrevious_performed(InputAction.CallbackContext context)
+    private void ToolPrevious(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -77,7 +77,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void ToolSubmenu_performed(InputAction.CallbackContext context)
+    private void ToolSubmenu(InputAction.CallbackContext context)
     {
         if (context.performed)
         {

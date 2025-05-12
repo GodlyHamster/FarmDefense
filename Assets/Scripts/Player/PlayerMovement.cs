@@ -13,17 +13,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Movement.performed += Movement_performed;
-        controls.Movement.canceled += Movement_performed;
+        controls.Movement.performed += Movement;
+        controls.Movement.canceled += Movement;
     }
 
     private void OnDisable()
     {
-        controls.Movement.performed -= Movement_performed;
-        controls.Movement.canceled -= Movement_performed;
+        controls.Movement.performed -= Movement;
+        controls.Movement.canceled -= Movement;
     }
 
-    private void Movement_performed(InputAction.CallbackContext context)
+    private void Movement(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -32,14 +32,6 @@ public class PlayerMovement : MonoBehaviour
         if (context.canceled)
         {
             _movementValue = Vector2.zero;
-        }
-    }
-
-    public void OnMovement(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Debug.Log("wahoo");
         }
     }
 

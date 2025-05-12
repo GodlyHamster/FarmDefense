@@ -6723,7 +6723,6 @@ GameObject:
   - component: {fileID: 1338033099}
   - component: {fileID: 1338033101}
   - component: {fileID: 1338033102}
-  - component: {fileID: 1338033098}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6731,60 +6730,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1338033098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338033097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7f6d4f0c-4a23-4363-98bf-1cce14c7d501
-    m_ActionName: 'Game/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: de9a3227-760e-4eec-8a28-0871b47dbb2c
-    m_ActionName: 'Game/MousePos[/Mouse/position]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: af40183f-a9e6-4870-a9c4-ff2597c41c9c
-    m_ActionName: 'Game/Interact[/Keyboard/e,/Mouse/leftButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fe1366a5-49bf-429b-a75f-5f2a9bcca4ea
-    m_ActionName: 'Game/ToolSelectNext[/Mouse/scroll/up,/Keyboard/2]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 64cc08d2-7db8-43c3-8100-33c4be2b583d
-    m_ActionName: 'Game/ToolSelectPrevious[/Mouse/scroll/down,/Keyboard/1]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 98eea704-f12a-464e-a047-f2eae24df7aa
-    m_ActionName: 'Game/ToolSubMenu[/Keyboard/leftShift]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Game
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &1338033099
 MonoBehaviour:
   m_ObjectHideFlags: 0
