@@ -7,17 +7,24 @@ using System;
 public class PlanterTool : EquipableItem, SubtoolInterface
 {
     [field: SerializeField]
-    public List<Item> subtoolItems { get; private set; }
-    public LinkedList<Item> subtoolLinkedList { get; private set; }
+    public List<Item> subtoolItems { get; private set; } = new List<Item>();
+    public LinkedList<Item> subtoolLinkedList { get; private set; } = new LinkedList<Item>();
     public LinkedListNode<Item> subtoolNode { get; private set; }
 
-    private void Awake()
+    private void OnEnable()
     {
+        subtoolLinkedList.Clear();
         foreach (Item item in subtoolItems)
         {
             subtoolLinkedList.AddLast(item);
         }
         subtoolNode = subtoolLinkedList.First;
+    }
+
+    private void OnDisable()
+    {
+        subtoolLinkedList.Clear();
+        subtoolNode = null;
     }
 
     public override void Equip()

@@ -70,7 +70,9 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
+                _selectedTool.Value.Dequip();
                 _selectedTool = _selectedTool.NextOrFirst();
+                _selectedTool.Value.Equip();
             }
             ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
         }
@@ -86,7 +88,9 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
+                _selectedTool.Value.Dequip();
                 _selectedTool = _selectedTool.PreviousOrLast();
+                _selectedTool.Value.Equip();
             }
             ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
         }
@@ -111,6 +115,7 @@ public class PlayerInteraction : MonoBehaviour
             _toolSelection.AddLast(item);
         }
         _selectedTool = _toolSelection.First;
+        _selectedTool.Value.Equip();
         ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
     }
 
