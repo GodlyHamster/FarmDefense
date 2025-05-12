@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "WateringCan", menuName = "ScriptableObjects/Tools/Watering Can", order = 1)]
+[CreateAssetMenu(fileName = "WateringCan", menuName = "ScriptableObjects/Items/Tools/Watering Can", order = 1)]
 public class WateringCan : EquipableItem
 {
     [Tooltip("Indicates for how many seconds a crop is watered")]

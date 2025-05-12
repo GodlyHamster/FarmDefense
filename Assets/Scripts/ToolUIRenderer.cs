@@ -31,12 +31,15 @@ public class ToolUIRenderer : MonoBehaviour
 
     public void UpdateSelectedTool(LinkedListNode<EquipableItem> equippedItem)
     {
-        selectedToolImage.sprite = equippedItem.Value.toolSprite;
-        nextToolImage.sprite = equippedItem.NextOrFirst().Value.toolSprite;
-        previousToolImage.sprite = equippedItem.PreviousOrLast().Value.toolSprite;
+        selectedToolImage.sprite = equippedItem.Value.itemSprite;
+        nextToolImage.sprite = equippedItem.NextOrFirst().Value.itemSprite;
+        previousToolImage.sprite = equippedItem.PreviousOrLast().Value.itemSprite;
 
         if (equippedItem.Value is SubtoolInterface)
         {
+            selectedSubImage.sprite = (equippedItem.Value as SubtoolInterface).subtoolNode.Value.itemSprite;
+            nextSubImage.sprite = (equippedItem.Value as SubtoolInterface).subtoolNode.NextOrFirst().Value.itemSprite;
+            previousSubImage.sprite = (equippedItem.Value as SubtoolInterface).subtoolNode.PreviousOrLast().Value.itemSprite;
             DisplaySubToolMenu(true);
         }
         else

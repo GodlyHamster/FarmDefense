@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917dfa95499dac947886b2b2c08b7f48, type: 3}
   m_Name: WateringCan
   m_EditorClassIdentifier: 
-  toolSprite: {fileID: 21300000, guid: fa26dfe7cc200ce4593938095aa67230, type: 3}
+  itemSprite: {fileID: 21300000, guid: fa26dfe7cc200ce4593938095aa67230, type: 3}
   wateringValue: 8

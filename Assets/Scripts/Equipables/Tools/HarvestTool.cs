@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "Harvester", menuName = "ScriptableObjects/Tools/Harvester", order = 2)]
+[CreateAssetMenu(fileName = "Harvester", menuName = "ScriptableObjects/Items/Tools/Harvester", order = 2)]
 public class HarvestTool : EquipableItem
 {
     public override void Equip()

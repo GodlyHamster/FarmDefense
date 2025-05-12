@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/Tools/Weapons/Gun", order = 0)]
+[CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/Items/Weapons/Gun", order = 0)]
 public class Gun : Weapon
 {
     public CropScriptableObject ammoType;
