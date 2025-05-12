@@ -9,6 +9,4 @@ public abstract class EquipableItem : ScriptableObject
     public virtual void Equip() { }
     public virtual void Dequip() { }
     public virtual void Use(Vector2Int useLocation, GameObject user) { }
-    public virtual void SubtoolNext() { }
-    public virtual void SubtoolPrevious() { }
 }

@@ -29,18 +29,13 @@ public class ToolUIRenderer : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
-    {
-        DisplaySubToolMenu(false);
-    }
-
     public void UpdateSelectedTool(LinkedListNode<EquipableItem> equippedItem)
     {
         selectedToolImage.sprite = equippedItem.Value.toolSprite;
         nextToolImage.sprite = equippedItem.NextOrFirst().Value.toolSprite;
         previousToolImage.sprite = equippedItem.PreviousOrLast().Value.toolSprite;
 
-        if (equippedItem.Value.GetType().IsSubclassOf(typeof(EquipableSubtoolItem<>), true))
+        if (equippedItem.Value is SubtoolInterface)
         {
             DisplaySubToolMenu(true);
         }

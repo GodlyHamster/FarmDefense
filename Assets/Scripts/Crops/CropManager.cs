@@ -47,7 +47,6 @@ public class CropManager : MonoBehaviour
         if (plantedCrops[pos].harvestable)
         {
             Crop harvestedCrop = plantedCrops[pos];
-            Debug.Log($"Harvested a {harvestedCrop.cropType.name}");
             OnCropHarvested?.Invoke(harvestedCrop.cropType, 5);
             Destroy(harvestedCrop.linkedObject);
             plantedCrops.Remove(pos);

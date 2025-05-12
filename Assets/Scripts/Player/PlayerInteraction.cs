@@ -64,9 +64,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (context.performed)
         {
-            if (isSubtoolButtonHeld)
+            if (isSubtoolButtonHeld && _selectedTool.Value is SubtoolInterface)
             {
-                _selectedTool.Value.SubtoolNext();
+                (_selectedTool.Value as SubtoolInterface).NextSubtool();
             }
             else
             {
@@ -80,9 +80,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (context.performed)
         {
-            if (isSubtoolButtonHeld)
+            if (isSubtoolButtonHeld && _selectedTool.Value is SubtoolInterface)
             {
-                _selectedTool.Value.SubtoolPrevious();
+                (_selectedTool.Value as SubtoolInterface).PreviousSubtool();
             }
             else
             {

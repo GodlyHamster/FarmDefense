@@ -4,10 +4,12 @@ using System;
 
 [Serializable]
 [CreateAssetMenu(fileName = "Planter", menuName = "ScriptableObjects/Tools/Planter", order = 0)]
-public class PlanterTool : EquipableSubtoolItem<CropScriptableObject>
+public class PlanterTool : EquipableItem, SubtoolInterface
 {
-    [SerializeField]
-    private List<CropScriptableObject> seedList = new List<CropScriptableObject>();
+    [field: SerializeField]
+    public List<CropScriptableObject> subtoolItems { get; private set; }
+    public LinkedList<CropScriptableObject> subtoolLinkedList { get; private set; }
+    public LinkedListNode<CropScriptableObject> subtoolNode { get; private set; }
 
     public override void Equip()
     {
@@ -21,7 +23,19 @@ public class PlanterTool : EquipableSubtoolItem<CropScriptableObject>
 
     public override void Use(Vector2Int useLocation, GameObject user)
     {
-        if (seedList.Count == 0) return;
-        CropManager.instance?.PlantCrop(useLocation, seedList[0]);
+        if (subtoolItems.Count == 0) return;
+        CropManager.instance?.PlantCrop(useLocation, subtoolItems[0]);
+    }
+
+    public void NextSubtool()
+    {
+        if (subtoolNode == null) return;
+        subtoolNode = subtoolNode.NextOrFirst();
+    }
+
+    public void PreviousSubtool()
+    {
+        if (subtoolNode == null) return;
+        subtoolNode = subtoolNode.PreviousOrLast();
     }
 }
