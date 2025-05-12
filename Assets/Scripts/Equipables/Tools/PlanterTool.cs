@@ -4,7 +4,7 @@ using System;
 
 [Serializable]
 [CreateAssetMenu(fileName = "Planter", menuName = "ScriptableObjects/Tools/Planter", order = 0)]
-public class PlanterTool : EquipableItem
+public class PlanterTool : EquipableSubtoolItem<CropScriptableObject>
 {
     [SerializeField]
     private List<CropScriptableObject> seedList = new List<CropScriptableObject>();

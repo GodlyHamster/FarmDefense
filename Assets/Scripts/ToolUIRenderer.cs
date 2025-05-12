@@ -16,6 +16,8 @@ public class ToolUIRenderer : MonoBehaviour
 
     [Header("Sub Tools")]
     [SerializeField]
+    private GameObject subToolMenu;
+    [SerializeField]
     private Image selectedSubImage;
     [SerializeField]
     private Image nextSubImage;
@@ -27,10 +29,29 @@ public class ToolUIRenderer : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        DisplaySubToolMenu(false);
+    }
+
     public void UpdateSelectedTool(LinkedListNode<EquipableItem> equippedItem)
     {
         selectedToolImage.sprite = equippedItem.Value.toolSprite;
         nextToolImage.sprite = equippedItem.NextOrFirst().Value.toolSprite;
         previousToolImage.sprite = equippedItem.PreviousOrLast().Value.toolSprite;
+
+        if (equippedItem.Value.GetType().IsSubclassOf(typeof(EquipableSubtoolItem<>), true))
+        {
+            DisplaySubToolMenu(true);
+        }
+        else
+        {
+            DisplaySubToolMenu(false);
+        }
+    }
+
+    private void DisplaySubToolMenu(bool doDisplay)
+    {
+        subToolMenu.SetActive(doDisplay);
     }
 }

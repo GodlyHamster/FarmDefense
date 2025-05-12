@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -23,6 +22,8 @@ public class PlayerInteraction : MonoBehaviour
 
     [SerializeField]
     private PlayerControls controls;
+
+    private bool isSubtoolButtonHeld = false;
 
     private void OnEnable()
     {
@@ -63,7 +64,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (context.performed)
         {
-            _selectedTool = _selectedTool.NextOrFirst();
+            if (isSubtoolButtonHeld)
+            {
+                _selectedTool.Value.SubtoolNext();
+            }
+            else
+            {
+                _selectedTool = _selectedTool.NextOrFirst();
+            }
             ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
         }
     }
@@ -72,7 +80,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (context.performed)
         {
-            _selectedTool = _selectedTool.PreviousOrLast();
+            if (isSubtoolButtonHeld)
+            {
+                _selectedTool.Value.SubtoolPrevious();
+            }
+            else
+            {
+                _selectedTool = _selectedTool.PreviousOrLast();
+            }
             ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
         }
     }
@@ -81,11 +96,11 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("Holding menu button");
+            isSubtoolButtonHeld = true;
         }
         if (context.canceled)
         {
-            Debug.Log("Released menu button");
+            isSubtoolButtonHeld = false;
         }
     }
 

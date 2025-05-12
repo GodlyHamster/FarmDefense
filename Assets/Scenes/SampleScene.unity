@@ -6981,9 +6981,10 @@ MonoBehaviour:
   selectedToolImage: {fileID: 41616688}
   nextToolImage: {fileID: 533552806}
   previousToolImage: {fileID: 12534556}
-  selectedSubImage: {fileID: 0}
-  nextSubImage: {fileID: 0}
-  previousSubImage: {fileID: 0}
+  subToolMenu: {fileID: 959235282}
+  selectedSubImage: {fileID: 2053653184}
+  nextSubImage: {fileID: 282688212}
+  previousSubImage: {fileID: 363839396}
 --- !u!1 &1429330694
 GameObject:
   m_ObjectHideFlags: 0
