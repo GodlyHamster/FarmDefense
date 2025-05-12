@@ -1,0 +1,107 @@
+using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using static UnityEngine.Rendering.DebugUI;
+
+public class PlayerInteraction : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject selectionOverlay;
+
+    [SerializeField]
+    private Grid grid;
+    private Vector3Int _playerTile;
+
+    private Vector3 _mouseTilePos;
+    private Vector3Int selectedTile;
+
+    [SerializeField]
+    private List<EquipableItem> availableTools = new List<EquipableItem>();
+    private LinkedList<EquipableItem> _toolSelection = new LinkedList<EquipableItem>();
+    private LinkedListNode<EquipableItem> _selectedTool;
+
+    [SerializeField]
+    private PlayerControls controls;
+
+    private void OnEnable()
+    {
+        controls.Interact.performed += Interact_performed;
+        controls.MousePosition.performed += MousePos;
+        controls.ToolNext.performed += ToolNext_performed;
+        controls.ToolPrevious.performed += ToolPrevious_performed;
+        controls.ToolSubmenu.performed += ToolSubmenu_performed;
+        controls.ToolSubmenu.canceled += ToolSubmenu_performed;
+    }
+
+    private void OnDisable()
+    {
+        controls.Interact.performed -= Interact_performed;
+        controls.MousePosition.performed -= MousePos;
+        controls.ToolNext.performed -= ToolNext_performed;
+        controls.ToolPrevious.performed -= ToolPrevious_performed;
+        controls.ToolSubmenu.performed -= ToolSubmenu_performed;
+        controls.ToolSubmenu.canceled -= ToolSubmenu_performed;
+    }
+
+    private void Interact_performed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _selectedTool.Value.Use((Vector2Int)selectedTile, gameObject);
+        }
+    }
+
+    private void MousePos(InputAction.CallbackContext context)
+    {
+        Vector2 mousePos = context.ReadValue<Vector2>();
+        selectedTile = grid.WorldToCell(Camera.main.ScreenToWorldPoint(mousePos));
+        _mouseTilePos = grid.GetCellCenterWorld(selectedTile);
+    }
+
+    private void ToolNext_performed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _selectedTool = _selectedTool.NextOrFirst();
+            ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
+        }
+    }
+
+    private void ToolPrevious_performed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _selectedTool = _selectedTool.PreviousOrLast();
+            ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
+        }
+    }
+
+    private void ToolSubmenu_performed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Holding menu button");
+        }
+        if (context.canceled)
+        {
+            Debug.Log("Released menu button");
+        }
+    }
+
+    private void Start()
+    {
+        foreach (EquipableItem item in availableTools)
+        {
+            _toolSelection.AddLast(item);
+        }
+        _selectedTool = _toolSelection.First;
+        ToolUIRenderer.instance.UpdateSelectedTool(_selectedTool);
+    }
+
+    private void Update()
+    {
+        _playerTile = grid.WorldToCell(transform.position);
+        selectionOverlay.transform.position = _mouseTilePos;
+    }
+}

@@ -6,12 +6,21 @@ public class ToolUIRenderer : MonoBehaviour
 {
     public static ToolUIRenderer instance;
 
+    [Header("Main Tools")]
     [SerializeField]
     private Image selectedToolImage;
     [SerializeField]
     private Image nextToolImage;
     [SerializeField]
     private Image previousToolImage;
+
+    [Header("Sub Tools")]
+    [SerializeField]
+    private Image selectedSubImage;
+    [SerializeField]
+    private Image nextSubImage;
+    [SerializeField]
+    private Image previousSubImage;
 
     private void Awake()
     {
