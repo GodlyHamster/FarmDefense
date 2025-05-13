@@ -33,13 +33,21 @@ public class ToolUIRenderer : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI previousSubText;
 
+    private LinkedListNode<EquipableItem> currentEquipped;
+
     private void Awake()
     {
         instance = this;
     }
 
+    private void Start()
+    {
+        Inventory.OnInventoryUpdated += UpdateItemCount;
+    }
+
     public void UpdateSelectedTool(LinkedListNode<EquipableItem> equippedItem)
     {
+        currentEquipped = equippedItem;
         selectedToolImage.sprite = equippedItem.Value.itemSprite;
         nextToolImage.sprite = equippedItem.NextOrFirst().Value.itemSprite;
         previousToolImage.sprite = equippedItem.PreviousOrLast().Value.itemSprite;
@@ -57,6 +65,16 @@ public class ToolUIRenderer : MonoBehaviour
         else
         {
             DisplaySubToolMenu(false);
+        }
+    }
+
+    public void UpdateItemCount()
+    {
+        if (currentEquipped.Value is SubtoolInterface)
+        {
+            LinkedListNode<Item> subtoolNode = (currentEquipped.Value as SubtoolInterface).subtoolNode;
+
+            selectedSubText.text = Inventory.instance.GetItemCount(subtoolNode.Value).ToString();
         }
     }
 
