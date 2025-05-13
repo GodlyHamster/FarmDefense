@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,9 +21,17 @@ public class ToolUIRenderer : MonoBehaviour
     [SerializeField]
     private Image selectedSubImage;
     [SerializeField]
+    private TextMeshProUGUI selectedSubText;
+
+    [SerializeField]
     private Image nextSubImage;
     [SerializeField]
+    private TextMeshProUGUI nextSubText;
+
+    [SerializeField]
     private Image previousSubImage;
+    [SerializeField]
+    private TextMeshProUGUI previousSubText;
 
     private void Awake()
     {
@@ -37,9 +46,12 @@ public class ToolUIRenderer : MonoBehaviour
 
         if (equippedItem.Value is SubtoolInterface)
         {
-            selectedSubImage.sprite = (equippedItem.Value as SubtoolInterface).subtoolNode.Value.itemSprite;
-            nextSubImage.sprite = (equippedItem.Value as SubtoolInterface).subtoolNode.NextOrFirst().Value.itemSprite;
-            previousSubImage.sprite = (equippedItem.Value as SubtoolInterface).subtoolNode.PreviousOrLast().Value.itemSprite;
+            LinkedListNode<Item> subtoolNode = (equippedItem.Value as SubtoolInterface).subtoolNode;
+
+            selectedSubImage.sprite = subtoolNode.Value.itemSprite;
+            selectedSubText.text = Inventory.instance.GetItemCount(subtoolNode.Value).ToString();
+            nextSubImage.sprite = subtoolNode.NextOrFirst().Value.itemSprite;
+            previousSubImage.sprite = subtoolNode.PreviousOrLast().Value.itemSprite;
             DisplaySubToolMenu(true);
         }
         else
