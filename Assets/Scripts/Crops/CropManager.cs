@@ -18,7 +18,7 @@ public class CropManager : MonoBehaviour
     private List<Vector2Int> availabeLand = new List<Vector2Int>();
     private Dictionary<Vector2Int, Crop> plantedCrops = new Dictionary<Vector2Int, Crop>();
 
-    public static event Action<CropScriptableObject, int> OnCropHarvested;
+    public static event Action<Item, int> OnCropHarvested;
 
     private void Awake()
     {
@@ -47,7 +47,12 @@ public class CropManager : MonoBehaviour
         if (plantedCrops[pos].harvestable)
         {
             Crop harvestedCrop = plantedCrops[pos];
-            OnCropHarvested?.Invoke(harvestedCrop.cropType, 5);
+            foreach (LootTableItem item in harvestedCrop.cropType.lootTable.items)
+            {
+                int randomAmount = UnityEngine.Random.Range(item.minAmount, item.maxAmount + 1);
+                OnCropHarvested?.Invoke(item.item, randomAmount);
+                Debug.Log($"Added {randomAmount} of {item.item.name}");
+            }
             Destroy(harvestedCrop.linkedObject);
             plantedCrops.Remove(pos);
         }
