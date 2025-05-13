@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd331281383b0604587753d5b2ffad21, type: 3}
   m_Name: Planter
@@ -15,3 +15,4 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 6cddb3369f799d146918d91ae159cfb1, type: 3}
   <subtoolItems>k__BackingField:
   - {fileID: 11400000, guid: b52e0cdc1b4fa6140b86917e17e7f7ba, type: 2}
+  - {fileID: 11400000, guid: 52b0ca86e4b557f488cad5035f8c9c01, type: 2}
