@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df982594422cd2549951f7b1c773f1cb, type: 3}
-  m_Name: CarrotGun
+  m_Script: {fileID: 11500000, guid: dcbaee8afd214c44d9d7b01fc05f23a8, type: 3}
+  m_Name: CarrotAmmo
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 21300000, guid: d5b3787bc69c5b644b32d5387d9bac41, type: 3}
-  useCooldown: 0.3
-  <subtoolItems>k__BackingField:
-  - {fileID: 11400000, guid: e5c3ca96f9058a94e9f08a1011567bde, type: 2}
+  requiredAmmo: {fileID: 11400000, guid: b52e0cdc1b4fa6140b86917e17e7f7ba, type: 2}
+  bulletPrefab: {fileID: 6221165455369942469, guid: a12537c9e5a3e844f9cb39769a4e6ec4, type: 3}

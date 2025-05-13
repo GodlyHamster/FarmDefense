@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject inventoryItemPrefab;
 
-    private Dictionary<CropScriptableObject, InventoryItem> cropsAmount = new Dictionary<CropScriptableObject, InventoryItem>();
+    private Dictionary<Item, int> items = new Dictionary<Item, int>();
 
     private void OnEnable()
     {
@@ -29,71 +27,33 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
-    public void AddItem(CropScriptableObject crop, int amount)
+    public void AddItem(Item item, int amount)
     {
-        if (!cropsAmount.ContainsKey(crop))
-        {
-            GameObject itemContainer = Instantiate(inventoryItemPrefab, inventoryUIContainer);
-            TextMeshProUGUI text = itemContainer.GetComponentInChildren<TextMeshProUGUI>();
-            try
-            {
-                InventoryItem inventoryItem = new InventoryItem(crop, amount, text, itemContainer);
-                cropsAmount.Add(crop, inventoryItem);
-            }
-            catch
-            {
-                Destroy(itemContainer);
-            }
+        if (items.ContainsKey(item)) {
+            items[item] += amount;
             return;
         }
-
-        cropsAmount[crop].AddAmount(amount);
+        items.Add(item, amount);
     }
 
-    public bool RemoveAmount(CropScriptableObject crop, int amount)
+    public bool RemoveAmount(Item item, int amount)
     {
-        if (cropsAmount.ContainsKey(crop) && cropsAmount[crop].Amount >= amount)
+        if (items.ContainsKey(item) && items[item] >= amount)
         {
-            cropsAmount[crop].RemoveAmount(amount);
+            items[item] -= amount;
             return true;
         }
         return false;
     }
-}
 
-public class InventoryItem
-{
-    private CropScriptableObject crop;
-    private int amount;
-    public int Amount { get { return amount; } }
-    private TextMeshProUGUI amountText;
-    private GameObject linkedObject;
-
-    public InventoryItem(CropScriptableObject crop, int amount, TextMeshProUGUI amountText, GameObject linkedObject)
+#if UNITY_EDITOR
+    [ContextMenu("Debug inventory")]
+    public void DebugInventory()
     {
-        this.crop = crop;
-        this.amount = amount;
-        this.amountText = amountText;
-        this.linkedObject = linkedObject;
-
-        SetVisuals();
+        foreach (KeyValuePair<Item, int> item in items)
+        {
+            Debug.Log($"{item.Key.name}: {item.Value}");
+        }
     }
-
-    private void SetVisuals()
-    {
-        linkedObject.GetComponentInChildren<RawImage>().texture = crop.itemSprite.texture;
-        amountText.text = amount.ToString();
-    }
-
-    public void AddAmount(int amount)
-    {
-        this.amount += amount;
-        amountText.text = this.amount.ToString();
-    }
-
-    public void RemoveAmount(int amount)
-    {
-        this.amount -= amount;
-        amountText.text = this.amount.ToString();
-    }
+#endif
 }

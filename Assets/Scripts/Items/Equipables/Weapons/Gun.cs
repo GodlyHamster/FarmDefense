@@ -1,13 +1,31 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
 [CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/Items/Weapons/Gun", order = 0)]
-public class Gun : Weapon
+public class Gun : Weapon, SubtoolInterface
 {
-    public CropScriptableObject ammoType;
+    [field: SerializeField]
+    public List<Item> subtoolItems { get; private set; } = new List<Item>();
+    public LinkedList<Item> subtoolLinkedList { get; private set; } = new LinkedList<Item>();
+    public LinkedListNode<Item> subtoolNode { get; private set; }
 
-    public GameObject bulletPrefab;
+    private void OnEnable()
+    {
+        subtoolLinkedList.Clear();
+        foreach (Item item in subtoolItems)
+        {
+            subtoolLinkedList.AddLast(item);
+        }
+        subtoolNode = subtoolLinkedList.First;
+    }
+
+    private void OnDisable()
+    {
+        subtoolLinkedList.Clear();
+        subtoolNode = null;
+    }
 
     public override void Equip()
     {
@@ -21,15 +39,29 @@ public class Gun : Weapon
 
     public override void Use(Vector2Int useLocation, GameObject user)
     {
-        if (!Inventory.instance.RemoveAmount(ammoType, 1))
+        if (subtoolNode.Value is not BulletData) return;
+        BulletData bulletData = (subtoolNode.Value as BulletData);
+        if (!Inventory.instance.RemoveAmount(bulletData.requiredAmmo, 1))
         {
-            Debug.Log($"Can't fire {name} because there are no {ammoType}!");
+            Debug.Log($"Can't fire {name} because there are no {bulletData.requiredAmmo}!");
             return;
         }
 
         Vector3 direction = ((Vector2)useLocation - (Vector2)user.transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.Euler(0, 0, angle);
-        Instantiate(bulletPrefab, user.transform.position, rotation);
+        Instantiate(bulletData.bulletPrefab, user.transform.position, rotation);
+    }
+
+    public void NextSubtool()
+    {
+        if (subtoolNode == null) return;
+        subtoolNode = subtoolNode.NextOrFirst();
+    }
+
+    public void PreviousSubtool()
+    {
+        if (subtoolNode == null) return;
+        subtoolNode = subtoolNode.PreviousOrLast();
     }
 }
