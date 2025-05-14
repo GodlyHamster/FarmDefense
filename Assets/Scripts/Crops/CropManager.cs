@@ -51,7 +51,6 @@ public class CropManager : MonoBehaviour
             {
                 int randomAmount = UnityEngine.Random.Range(item.minAmount, item.maxAmount + 1);
                 OnCropHarvested?.Invoke(item.item, randomAmount);
-                Debug.Log($"Added {randomAmount} of {item.item.name}");
             }
             Destroy(harvestedCrop.linkedObject);
             plantedCrops.Remove(pos);
