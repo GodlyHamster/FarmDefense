@@ -7304,7 +7304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 5
-  lootTable: {fileID: 0}
+  lootTable: {fileID: 11400000, guid: e360b080686fa6c48b1db484c125e198, type: 2}
   targetLocation: {x: 0, y: 0, z: 0}
   player: {fileID: 1338033100}
 --- !u!4 &1429330696
