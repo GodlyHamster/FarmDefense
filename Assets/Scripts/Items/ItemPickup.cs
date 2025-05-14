@@ -5,8 +5,10 @@ public class ItemPickup : MonoBehaviour
     public Item item;
     public int amount = 1;
 
-    private void Start()
+    public void Initialize(Item item, int amount)
     {
+        this.item = item;
+        this.amount = amount;
         GetComponent<SpriteRenderer>().sprite = item?.itemSprite;
     }
 

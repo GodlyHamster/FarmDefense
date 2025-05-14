@@ -20,9 +20,12 @@ public class CarrotEnemy : Enemy
         //hit animation stuffs here
 
         RemoveHealth(1);
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        ItemDropManager.instance.HandleLootTableDrop(lootTable, transform.position);
+        Destroy(gameObject);
     }
 }

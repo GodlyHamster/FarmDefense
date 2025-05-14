@@ -968,7 +968,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 1.3
 --- !u!114 &759509459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,7 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecc73208c3885e45b467d6c9bfed1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupRange: 0.3
+  pickupRange: 0.5
 --- !u!1 &869029724
 GameObject:
   m_ObjectHideFlags: 0
@@ -7304,6 +7304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 5
+  lootTable: {fileID: 0}
   targetLocation: {x: 0, y: 0, z: 0}
   player: {fileID: 1338033100}
 --- !u!4 &1429330696
@@ -7482,6 +7483,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1580546278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1580546279}
+  - component: {fileID: 1580546280}
+  m_Layer: 0
+  m_Name: ItemPickupManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1580546279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580546278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1580546280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580546278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002a5fc3b534fcf439eefa5d17768ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPickupPrefab: {fileID: 7313985072907692523, guid: cf1fc7789c0463e4d88bd06bd92be873, type: 3}
 --- !u!1 &1901500858
 GameObject:
   m_ObjectHideFlags: 0
@@ -7756,6 +7802,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5153487910162224996, guid: cf1fc7789c0463e4d88bd06bd92be873, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ef0dffa4648ae54db4a86d9bff68479, type: 3}
     - target: {fileID: 6342994622344504292, guid: cf1fc7789c0463e4d88bd06bd92be873, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -7818,5 +7868,6 @@ SceneRoots:
   - {fileID: 873228345}
   - {fileID: 1901500861}
   - {fileID: 269740052}
+  - {fileID: 1580546279}
   - {fileID: 1429330696}
   - {fileID: 5509299515898947017}

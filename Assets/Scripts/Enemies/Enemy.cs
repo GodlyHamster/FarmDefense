@@ -6,6 +6,9 @@ public abstract class Enemy : MonoBehaviour, IHealth
     [field: SerializeField]
     public float maxHealth { get; private set; } = 1f;
 
+    [SerializeField]
+    protected LootTable lootTable;
+
     private void Start()
     {
         health = maxHealth;
@@ -22,12 +25,16 @@ public abstract class Enemy : MonoBehaviour, IHealth
         health -= amount;
         if (health <= 0)
         {
-            Debug.Log($"{gameObject.name} is dead");
+            Die();
         }
     }
 
     public virtual void Hit()
     {
         Debug.Log($"{gameObject.name} got hit");
+    }
+    public virtual void Die() 
+    {
+        Debug.Log($"{gameObject.name} is dead");
     }
 }

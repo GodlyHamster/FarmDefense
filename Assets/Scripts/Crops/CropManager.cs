@@ -47,11 +47,8 @@ public class CropManager : MonoBehaviour
         if (plantedCrops[pos].harvestable)
         {
             Crop harvestedCrop = plantedCrops[pos];
-            foreach (LootTableItem item in harvestedCrop.cropType.lootTable.items)
-            {
-                int randomAmount = UnityEngine.Random.Range(item.minAmount, item.maxAmount + 1);
-                OnCropHarvested?.Invoke(item.item, randomAmount);
-            }
+
+            ItemDropManager.instance.HandleLootTableDrop(harvestedCrop.cropType.lootTable, (Vector3Int)pos);
             Destroy(harvestedCrop.linkedObject);
             plantedCrops.Remove(pos);
         }

@@ -15,16 +15,6 @@ public class Inventory : MonoBehaviour
 
     public static event Action OnInventoryUpdated;
 
-    private void OnEnable()
-    {
-        CropManager.OnCropHarvested += AddItem;
-    }
-
-    private void OnDisable()
-    {
-        CropManager.OnCropHarvested -= AddItem;
-    }
-
     private void Awake()
     {
         instance = this;

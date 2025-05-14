@@ -10,4 +10,5 @@ public interface IHealth
     public virtual void RemoveHealth(int amount) { }
     //add hit information that entities can react to
     public virtual void Hit() { }
+    public virtual void Die() { }
 }
