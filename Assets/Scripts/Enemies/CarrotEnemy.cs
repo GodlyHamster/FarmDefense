@@ -8,6 +8,12 @@ public class CarrotEnemy : Enemy
     [SerializeField]
     Transform player;
 
+    private void Start()
+    {
+        health = maxHealth;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     private void Update()
     {
         targetLocation = player.position;

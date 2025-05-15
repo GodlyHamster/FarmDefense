@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IHealth
 {
-    public float health { get; private set; } = 1f;
+    public float health { get; protected set; } = 1f;
     [field: SerializeField]
     public float maxHealth { get; private set; } = 1f;
 

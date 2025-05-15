@@ -43,7 +43,6 @@ public class Gun : Weapon, SubtoolInterface
         BulletData bulletData = (subtoolNode.Value as BulletData);
         if (!Inventory.instance.RemoveAmount(bulletData, 1))
         {
-            Debug.Log($"Can't fire {name} because there are no {bulletData}!");
             return;
         }
 
