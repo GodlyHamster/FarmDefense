@@ -7368,7 +7368,7 @@ MonoBehaviour:
       amount: 5
   spawningArea:
     m_Center: {x: 15.5, y: 0, z: 0}
-    m_Extent: {x: 2, y: 15, z: 0}
+    m_Extent: {x: 1, y: 8, z: 0}
 --- !u!1 &1901500858
 GameObject:
   m_ObjectHideFlags: 0

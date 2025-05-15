@@ -22,6 +22,7 @@ public class WaveSpawner : MonoBehaviour
     {
         foreach (Wave wave in enemyWaves)
         {
+            yield return new WaitForSeconds(wave.timeUntilWave);
             foreach (EnemyWaveGroup waveGroup in wave.enemies)
             {
                 for (int i = 0; i < waveGroup.amount; i++)
@@ -41,7 +42,7 @@ public class WaveSpawner : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(255, 0, 0, 0.5f);
-        Gizmos.DrawCube(spawningArea.center, spawningArea.extents);
+        Gizmos.DrawCube(spawningArea.center, spawningArea.size);
     }
 #endif
 }
