@@ -40,7 +40,7 @@ public class WaveSpawner : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        Gizmos.color = new Color(255, 0, 0, 100);
+        Gizmos.color = new Color(255, 0, 0, 0.5f);
         Gizmos.DrawCube(spawningArea.center, spawningArea.extents);
     }
 #endif
