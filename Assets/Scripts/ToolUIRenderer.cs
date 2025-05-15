@@ -57,9 +57,9 @@ public class ToolUIRenderer : MonoBehaviour
             LinkedListNode<Item> subtoolNode = (equippedItem.Value as SubtoolInterface).subtoolNode;
 
             selectedSubImage.sprite = subtoolNode.Value.itemSprite;
-            selectedSubText.text = Inventory.instance.GetItemCount(subtoolNode.Value).ToString();
             nextSubImage.sprite = subtoolNode.NextOrFirst().Value.itemSprite;
             previousSubImage.sprite = subtoolNode.PreviousOrLast().Value.itemSprite;
+            UpdateItemCount();
             DisplaySubToolMenu(true);
         }
         else
@@ -74,7 +74,8 @@ public class ToolUIRenderer : MonoBehaviour
         {
             LinkedListNode<Item> subtoolNode = (currentEquipped.Value as SubtoolInterface).subtoolNode;
 
-            selectedSubText.text = Inventory.instance.GetItemCount(subtoolNode.Value).ToString();
+            //set the text to infinity icon if item is infinite, else set it to the count
+            selectedSubText.text = subtoolNode.Value.isInfinite ? "<rotate=\"90\">8" : Inventory.instance.GetItemCount(subtoolNode.Value).ToString();
         }
     }
 

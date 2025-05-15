@@ -33,6 +33,7 @@ public class Inventory : MonoBehaviour
 
     public bool RemoveAmount(Item item, int amount)
     {
+        if (item.isInfinite) return true;
         if (items.ContainsKey(item) && items[item] >= amount)
         {
             items[item] -= amount;
