@@ -11,8 +11,6 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     private Bounds spawningArea = new Bounds();
 
-    private int currentWave = 0;
-
     private void Start()
     {
         StartCoroutine(SpawnWaves());
