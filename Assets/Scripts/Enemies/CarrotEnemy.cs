@@ -34,4 +34,15 @@ public class CarrotEnemy : Enemy
         ItemDropManager.instance.HandleLootTableDrop(lootTable, transform.position);
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Player>(out Player player))
+        {
+            if (player is IHealth)
+            {
+                (player as IHealth).Hit();
+            }
+        }
+    }
 }
