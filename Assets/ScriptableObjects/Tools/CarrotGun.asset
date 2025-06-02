@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: CarrotGun
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 21300000, guid: d5b3787bc69c5b644b32d5387d9bac41, type: 3}
+  isInfinite: 0
   useCooldown: 0.3
   <subtoolItems>k__BackingField:
+  - {fileID: 11400000, guid: d43a135969d7913409b85c3f2bc783c0, type: 2}
   - {fileID: 11400000, guid: e5c3ca96f9058a94e9f08a1011567bde, type: 2}

@@ -29,7 +29,7 @@ public abstract class Enemy : MonoBehaviour, IHealth
         }
     }
 
-    public virtual void Hit()
+    public virtual void Hit(HitInfo hitInfo)
     {
         Debug.Log($"{gameObject.name} got hit");
     }

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Planter
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 21300000, guid: 6cddb3369f799d146918d91ae159cfb1, type: 3}
+  isInfinite: 0
   <subtoolItems>k__BackingField:
+  - {fileID: 11400000, guid: af5d09f630e00fd45b2e3ccefc188dd4, type: 2}
   - {fileID: 11400000, guid: b52e0cdc1b4fa6140b86917e17e7f7ba, type: 2}
   - {fileID: 11400000, guid: 52b0ca86e4b557f488cad5035f8c9c01, type: 2}

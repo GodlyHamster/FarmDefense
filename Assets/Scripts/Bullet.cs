@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField]
+    private HitInfo hitInfo;
+    [SerializeField]
+    private float bulletSpeed = 5f;
+
     Vector3 moveDirection = Vector2.zero;
-    float bulletSpeed = 5f;
 
     private float _aliveTime = 0f;
 
@@ -29,7 +33,7 @@ public class Bullet : MonoBehaviour
         IHealth healthComponent = collider.gameObject.GetComponent(typeof(IHealth)) as IHealth;
         if (healthComponent != null)
         {
-            healthComponent.Hit();
+            healthComponent.Hit(hitInfo);
         }
         Destroy(gameObject);
     }

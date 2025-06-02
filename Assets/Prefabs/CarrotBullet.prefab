@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4262196191849103847}
   - component: {fileID: 8629499245171143362}
   m_Layer: 8
-  m_Name: Bullet
+  m_Name: CarrotBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,6 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f719daf0416e14a8791e6c0dd02510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitInfo:
+    damage: 2
+    hitDirection: {x: 0, y: 0}
+  bulletSpeed: 7
 --- !u!60 &8629499245171143362
 PolygonCollider2D:
   m_ObjectHideFlags: 0

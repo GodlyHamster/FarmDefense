@@ -7172,6 +7172,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Tool Next
       m_Flags: 0
+    - m_Name: 
+      m_Id: 814005bc-a9a3-4d1c-accc-bf0ddb19136f
+      m_Path: <Keyboard>/1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Tool Next
+      m_Flags: 0
     m_Flags: 0
   ToolPrevious:
     m_Name: Tool Previous
@@ -7184,6 +7192,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 0b5c524c-f379-4f05-974e-8d2dbea9596a
       m_Path: <Mouse>/scroll/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Tool Previous
+      m_Flags: 0
+    - m_Name: 
+      m_Id: c4b9435f-6164-45bd-be79-03d6ec6044ab
+      m_Path: <Keyboard>/3
       m_Interactions: 
       m_Processors: 
       m_Groups: 

@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9816b1582f1512e4eafcf5961a27ba4d, type: 3}
-  m_Name: CarrotCropLoottable
+  m_Script: {fileID: 11500000, guid: dcbaee8afd214c44d9d7b01fc05f23a8, type: 3}
+  m_Name: PeaAmmo
   m_EditorClassIdentifier: 
-  <items>k__BackingField:
-  - item: {fileID: 11400000, guid: e5c3ca96f9058a94e9f08a1011567bde, type: 2}
-    minAmount: 2
-    maxAmount: 3
+  itemSprite: {fileID: 21300000, guid: e6e572f22bb1995478df90cb43b7a00c, type: 3}
+  isInfinite: 0
+  bulletPrefab: {fileID: 2287988321434158244, guid: 82613d627c5148a4c9bf85fb90b87fce, type: 3}

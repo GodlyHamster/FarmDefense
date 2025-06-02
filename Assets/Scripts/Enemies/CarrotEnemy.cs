@@ -21,7 +21,7 @@ public class CarrotEnemy : Enemy
         transform.position += moveDirection * Time.deltaTime;
     }
 
-    public override void Hit()
+    public override void Hit(HitInfo hitInfo)
     {
         //hit animation stuffs here
 
@@ -41,7 +41,8 @@ public class CarrotEnemy : Enemy
         {
             if (player is IHealth)
             {
-                (player as IHealth).Hit();
+                HitInfo hitInfo = new HitInfo(1);
+                (player as IHealth).Hit(hitInfo);
             }
         }
     }

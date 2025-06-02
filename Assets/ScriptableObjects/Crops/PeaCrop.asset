@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408ac3514b99ea74a8e9f9de2e540b80, type: 3}
+  m_Name: PeaCrop
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: 66a421568b402974d83c1372061e8242, type: 3}
+  isInfinite: 1
+  growthStages:
+  - growthTime: 0
+    crop: {fileID: 5482305790710250522, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
+    wateredCrop: {fileID: 4153914710844903817, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
+  - growthTime: 1.5
+    crop: {fileID: -5302060627568922172, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
+    wateredCrop: {fileID: 4085327278918725248, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
+  - growthTime: 3
+    crop: {fileID: 9094910784791944270, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
+    wateredCrop: {fileID: -8500274634009093223, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
+  dehydrationMult: 1
+  lootTable: {fileID: 11400000, guid: 31b7c43d0d113d64cb0d1ed692564f12, type: 2}
