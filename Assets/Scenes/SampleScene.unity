@@ -7597,8 +7597,18 @@ MonoBehaviour:
   enemyWaves:
   - <timeUntilWave>k__BackingField: 5
     <enemies>k__BackingField:
-    - enemyPrefab: {fileID: 1540508192861471725, guid: 10f74ddc407b6e24d91361e08b081d4f, type: 3}
+    - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
+      amount: 3
+  - <timeUntilWave>k__BackingField: 5
+    <enemies>k__BackingField:
+    - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
       amount: 5
+  - <timeUntilWave>k__BackingField: 8
+    <enemies>k__BackingField:
+    - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
+      amount: 3
+    - enemyPrefab: {fileID: 1540508192861471725, guid: 10f74ddc407b6e24d91361e08b081d4f, type: 3}
+      amount: 2
   spawningArea:
     m_Center: {x: 15.5, y: 0, z: 0}
     m_Extent: {x: 1, y: 8, z: 0}
