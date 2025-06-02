@@ -32,9 +32,11 @@ public abstract class Enemy : MonoBehaviour, IHealth
     public virtual void Hit(HitInfo hitInfo)
     {
         Debug.Log($"{gameObject.name} got hit");
+        RemoveHealth(hitInfo.damage);
     }
     public virtual void Die() 
     {
         Debug.Log($"{gameObject.name} is dead");
+        Destroy(gameObject);
     }
 }

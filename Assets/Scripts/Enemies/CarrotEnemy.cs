@@ -23,14 +23,14 @@ public class CarrotEnemy : Enemy
 
     public override void Hit(HitInfo hitInfo)
     {
-        //hit animation stuffs here
+        //hit animation logic here
+        //apply small knockback on hit?
 
-        RemoveHealth(1);
+        RemoveHealth(hitInfo.damage);
     }
 
     public override void Die()
     {
-        base.Die();
         ItemDropManager.instance.HandleLootTableDrop(lootTable, transform.position);
         Destroy(gameObject);
     }

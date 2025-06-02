@@ -32,9 +32,9 @@ public class Player : MonoBehaviour, IHealth
     }
 
     [ContextMenu("Hit")]
-    public virtual void Hit()
+    public virtual void Hit(HitInfo hitInfo)
     {
-        RemoveHealth(1);
+        RemoveHealth(hitInfo.damage);
     }
 
     public virtual void Die() 

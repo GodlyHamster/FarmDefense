@@ -25,6 +25,12 @@ public class CropManager : MonoBehaviour
         instance = this;
     }
 
+    public bool IsPlotOccupied(Vector2Int pos)
+    {
+        if (!availabeLand.Contains(pos) || plantedCrops.ContainsKey(pos)) return true;
+        return false;
+    }
+
     public bool PlantCrop(Vector2Int pos, CropScriptableObject cropType)
     {
         if (!availabeLand.Contains(pos)) return false;

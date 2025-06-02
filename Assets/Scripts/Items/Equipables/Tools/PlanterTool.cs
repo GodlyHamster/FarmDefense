@@ -41,6 +41,7 @@ public class PlanterTool : EquipableItem, SubtoolInterface
     {
         if (subtoolItems.Count == 0) return;
         if (subtoolNode.Value is not CropScriptableObject) return;
+        if (CropManager.instance.IsPlotOccupied(useLocation)) return;
         if (!Inventory.instance.RemoveAmount(subtoolNode.Value, 1)) return;
         CropManager.instance?.PlantCrop(useLocation, (subtoolNode.Value as CropScriptableObject));
     }

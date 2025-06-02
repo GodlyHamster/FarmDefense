@@ -15,4 +15,4 @@ MonoBehaviour:
   <items>k__BackingField:
   - item: {fileID: 11400000, guid: b52e0cdc1b4fa6140b86917e17e7f7ba, type: 2}
     minAmount: 2
-    maxAmount: 3
+    maxAmount: 2
