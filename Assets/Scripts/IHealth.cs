@@ -8,7 +8,7 @@ public interface IHealth
     public virtual void AddHealth(int amount) { }
 
     public virtual void RemoveHealth(int amount) { }
-    //add hit information that entities can react to
+
     public virtual void Hit(HitInfo hitInfo) { }
     public virtual void Die() { }
 }
