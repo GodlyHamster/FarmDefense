@@ -7,16 +7,16 @@ namespace Assets.Scripts.Characters
     public class AttackComponent
     {
         [SerializeField]
-        private Vector3 target;
-        public Vector3 Target { get { return target; } }
+        private Transform target;
+        public Transform Target { get { return target; } }
 
         [SerializeField]
         private int damage;
         public int Damage { get { return damage; } }
 
-        public void Attack(HitInfo hit)
+        public void Attack(IHealth target, HitInfo hit)
         {
-            throw new NotImplementedException();
+            target.Hit(hit);
         }
     }
 }

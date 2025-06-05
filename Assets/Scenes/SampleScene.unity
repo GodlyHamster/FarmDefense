@@ -691,6 +691,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PeaEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4516980967549224828, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
+      propertyPath: attackComponent.damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516980967549224828, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
+      propertyPath: attackComponent.target
+      value: 
+      objectReference: {fileID: 1338033100}
+    - target: {fileID: 4516980967549224828, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
+      propertyPath: movementComponent.moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5498863463745589400, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9

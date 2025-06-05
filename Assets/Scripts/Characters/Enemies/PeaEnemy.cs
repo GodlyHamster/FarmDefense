@@ -4,16 +4,13 @@ using Assets.Scripts.Characters;
 public class PeaEnemy : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 movementValue;
-
-    [SerializeField]
     private MovementComponent movementComponent = new MovementComponent();
     [SerializeField]
     private AttackComponent attackComponent = new AttackComponent();
 
     void Update()
     {
-        movementComponent.MoveTowards(transform, attackComponent.Target);
+        movementComponent.MoveTowards(transform, attackComponent.Target.position);
     }
 
 
@@ -23,8 +20,7 @@ public class PeaEnemy : MonoBehaviour
         {
             if (player is IHealth)
             {
-                HitInfo hitInfo = new HitInfo(attackComponent.Damage, transform.position);
-                (player as IHealth).Hit(hitInfo);
+                attackComponent.Attack(player as IHealth, new HitInfo(1));
             }
         }
     }
