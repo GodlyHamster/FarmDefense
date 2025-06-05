@@ -51,6 +51,8 @@ MonoBehaviour:
   lootTable: {fileID: 11400000, guid: e360b080686fa6c48b1db484c125e198, type: 2}
   targetLocation: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
+  damage: 2
+  speed: 1
 --- !u!50 &2462510931127573089
 Rigidbody2D:
   serializedVersion: 5

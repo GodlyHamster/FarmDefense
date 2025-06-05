@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <items>k__BackingField:
   - item: {fileID: 11400000, guid: d43a135969d7913409b85c3f2bc783c0, type: 2}
-    minAmount: 4
-    maxAmount: 8
+    minAmount: 3
+    maxAmount: 5

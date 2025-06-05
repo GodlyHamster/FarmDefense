@@ -8,8 +8,18 @@ public class CarrotEnemy : Enemy
     [SerializeField]
     Transform player;
 
+    [Header("Entity values")]
+    [SerializeField]
+    private int damage = 1;
+    [SerializeField]
+    private float speed = 1f;
+
+    private Rigidbody2D rb;
+
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         health = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -18,13 +28,14 @@ public class CarrotEnemy : Enemy
     {
         targetLocation = player.position;
         Vector3 moveDirection = (targetLocation - transform.position).normalized;
-        transform.position += moveDirection * Time.deltaTime;
+        transform.position += moveDirection * speed * Time.deltaTime;
     }
 
     public override void Hit(HitInfo hitInfo)
     {
-        //hit animation logic here
-        //apply small knockback on hit?
+        //apply knockback based on hit direction
+        //Vector2 knockbackVec = ((Vector2)transform.position - hitInfo.hitDirection).normalized;
+        //rb.AddForce(knockbackVec, ForceMode2D.Impulse);
 
         RemoveHealth(hitInfo.damage);
     }
@@ -41,7 +52,7 @@ public class CarrotEnemy : Enemy
         {
             if (player is IHealth)
             {
-                HitInfo hitInfo = new HitInfo(1);
+                HitInfo hitInfo = new HitInfo(damage, transform.position);
                 (player as IHealth).Hit(hitInfo);
             }
         }

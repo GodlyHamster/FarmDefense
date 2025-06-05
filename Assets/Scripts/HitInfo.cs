@@ -7,15 +7,15 @@ public struct HitInfo
     public HitInfo(int damage)
     {
         this.damage = damage;
-        this.hitDirection = Vector2.zero;
+        this.hitFromPos = Vector2.zero;
     }
 
     public HitInfo(int damage, Vector2 hitDirection)
     {
         this.damage = damage;
-        this.hitDirection = hitDirection;
+        this.hitFromPos = hitDirection;
     }
 
     public int damage;
-    public Vector2 hitDirection;
+    public Vector2 hitFromPos;
 }

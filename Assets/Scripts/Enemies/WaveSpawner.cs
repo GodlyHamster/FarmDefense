@@ -7,9 +7,14 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField]
     private List<Wave> enemyWaves = new List<Wave>();
+    private int currentWave = 0;
 
     [SerializeField]
     private Bounds spawningArea = new Bounds();
+
+    [Header("Debugging")]
+    [SerializeField]
+    private int startAtWave = 0;
 
     private void Start()
     {
@@ -18,8 +23,14 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWaves()
     {
+        currentWave = 0;
         foreach (Wave wave in enemyWaves)
         {
+            if (startAtWave > currentWave)
+            {
+                currentWave++;
+                continue;
+            }
             yield return new WaitForSeconds(wave.timeUntilWave);
             foreach (EnemyWaveGroup waveGroup in wave.enemies)
             {
@@ -32,6 +43,7 @@ public class WaveSpawner : MonoBehaviour
                     yield return new WaitForSeconds(2f);
                 }
             }
+            currentWave++;
         }
         yield return null;
     }
