@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Characters
 {
@@ -14,6 +15,8 @@ namespace Assets.Scripts.Characters
         private bool destroyOnDeath = true;
 
         public event Action<int, int> OnHealthChanged;
+
+        public UnityEvent OnDeath = new UnityEvent();
 
         private void Awake()
         {
@@ -36,6 +39,7 @@ namespace Assets.Scripts.Characters
 
         private void Die()
         {
+            OnDeath.Invoke();
             if (destroyOnDeath) Destroy(gameObject);
         }
 

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7517439858000577424}
   - component: {fileID: 1340082047127494230}
   - component: {fileID: 6648575135879495686}
+  - component: {fileID: 5596750379636857292}
   m_Layer: 7
   m_Name: CarrotEnemy
   m_TagString: Untagged
@@ -192,6 +193,34 @@ MonoBehaviour:
   maxHealth: 5
   health: 5
   destroyOnDeath: 1
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5596750379636857292}
+        m_TargetAssemblyTypeName: Assets.Scripts.Characters.LootTableComponent, Assembly-CSharp
+        m_MethodName: DropLootTable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5596750379636857292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540508192861471725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee869ad55001c5408b2587a891f67ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loottable: {fileID: 11400000, guid: e360b080686fa6c48b1db484c125e198, type: 2}
 --- !u!1 &8251711199135940762
 GameObject:
   m_ObjectHideFlags: 0

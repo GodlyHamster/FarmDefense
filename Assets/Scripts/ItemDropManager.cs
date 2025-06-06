@@ -1,3 +1,4 @@
+using Assets.Scripts.Characters;
 using UnityEngine;
 
 public class ItemDropManager : MonoBehaviour
@@ -6,6 +7,15 @@ public class ItemDropManager : MonoBehaviour
 
     [SerializeField]
     private GameObject itemPickupPrefab;
+
+    private void OnEnable()
+    {
+        LootTableComponent.DropLoottable += HandleLootTableDrop;
+    }
+    private void OnDisable()
+    {
+        LootTableComponent.DropLoottable -= HandleLootTableDrop;
+    }
 
     private void Awake()
     {
