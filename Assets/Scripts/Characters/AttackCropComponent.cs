@@ -1,18 +1,19 @@
 using UnityEngine;
-using Assets.Scripts.Characters;
 
-public class AttackCropComponent : AttackComponent
+namespace Assets.Scripts.Characters
 {
-    private void Start()
+    public class AttackCropComponent : AttackComponent
     {
-        CropManager.OnFarmUpdated += UpdateAttackTarget;
-    }
 
-    private void UpdateAttackTarget()
-    {
-        foreach (var item in CropManager.instance.PlantedCrops)
+        private void Start()
         {
-            Debug.Log($"{item.Value.cropType.name} is at {item.Key}");
+            CropManager.OnFarmUpdated += UpdateAttackTarget;
+        }
+
+        private void UpdateAttackTarget()
+        {
+            var plantedCrops = CropManager.instance.PlantedCrops;
+            target = plantedCrops.GetRandomItem().Key;
         }
     }
 }

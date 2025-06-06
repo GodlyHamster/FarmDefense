@@ -1,11 +1,13 @@
 using UnityEngine;
-using Assets.Scripts.Characters;
 
-public class PeaMovement : MovementComponent
+namespace Assets.Scripts.Characters.Enemies
 {
-
-    public override void UpdateMovement(EnemyBase enemybase)
+    public class PeaMovement : MovementComponent
     {
-        MoveTowards(enemybase.AttackComponent.Target);
+
+        public override void UpdateMovement(EnemyBase enemybase)
+        {
+            MoveTowards(enemybase.AttackComponent.Target);
+        }
     }
 }

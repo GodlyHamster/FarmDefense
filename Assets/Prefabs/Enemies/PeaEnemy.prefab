@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0}
-  damage: 2
+  damage: 1
   player: {fileID: 0}
 --- !u!114 &5056817840294215146
 MonoBehaviour:

@@ -14,10 +14,7 @@ namespace Assets.Scripts.Characters
         private int damage;
         public int Damage { get { return damage; } }
 
-        public virtual void UpdateComponent()
-        {
-            Debug.Log("Updating attack");
-        }
+        public virtual void UpdateComponent() { }
 
         public void Attack(IHealth target)
         {
