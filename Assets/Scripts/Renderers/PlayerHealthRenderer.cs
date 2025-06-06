@@ -1,3 +1,4 @@
+using Assets.Scripts.Characters;
 using UnityEngine;
 
 public class PlayerHealthRenderer : MonoBehaviour
@@ -9,14 +10,17 @@ public class PlayerHealthRenderer : MonoBehaviour
     [SerializeField]
     private RectTransform healthBar;
 
+    [SerializeField]
+    private HealthComponent playerHealthComponent;
+
     private void OnEnable()
     {
-        Player.HealthUpdated += UpdateHealthbar;
+        playerHealthComponent.OnHealthChanged += UpdateHealthbar;
     }
 
     private void OnDisable()
     {
-        Player.HealthUpdated -= UpdateHealthbar;
+        playerHealthComponent.OnHealthChanged -= UpdateHealthbar;
     }
 
     private void Start()
@@ -24,7 +28,7 @@ public class PlayerHealthRenderer : MonoBehaviour
         maxWidth = thisRect.sizeDelta.x;
     }
 
-    public void UpdateHealthbar(float currentHealth, float maxHealth)
+    public void UpdateHealthbar(int currentHealth, int maxHealth)
     {
         float healthbarWidth = Utility.Remap(currentHealth, 0, maxHealth, 0, maxWidth);
         healthBar.sizeDelta = new Vector2(healthbarWidth, healthBar.sizeDelta.y);

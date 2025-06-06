@@ -22,11 +22,11 @@ namespace Assets.Scripts.Characters
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent(out Player player))
+            if (collision.gameObject.tag == "Player")
             {
-                if (player is IHealth)
+                if (collision.gameObject.TryGetComponent<HealthComponent>(out HealthComponent healthComponent))
                 {
-                    Attack(player);
+                    healthComponent.Hit(new HitInfo(Damage));
                 }
             }
         }

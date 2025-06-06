@@ -10,7 +10,10 @@ namespace Assets.Scripts.Characters
         [SerializeField]
         private int health;
 
-        public event Action OnHealthChanged;
+        [SerializeField]
+        private bool destroyOnDeath = true;
+
+        public event Action<int, int> OnHealthChanged;
 
         private void Awake()
         {
@@ -21,19 +24,19 @@ namespace Assets.Scripts.Characters
         {
             health += healthAmount;
             if (health > maxHealth) health = maxHealth;
-            OnHealthChanged?.Invoke();
+            OnHealthChanged?.Invoke(health, maxHealth);
         }
 
         private void RemoveHealth(int healthAmount)
         {
             health -= healthAmount;
-            OnHealthChanged?.Invoke();
+            OnHealthChanged?.Invoke(health,maxHealth);
             if (health <= 0) Die();
         }
 
         private void Die()
         {
-            Destroy(gameObject);
+            if (destroyOnDeath) Destroy(gameObject);
         }
 
         public void Hit(HitInfo hitInfo)
