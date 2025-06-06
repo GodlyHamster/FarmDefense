@@ -10,6 +10,9 @@ public class EnemyBase : MonoBehaviour
     public AttackComponent AttackComponent { get { return attackComponent; } }
     [SerializeField]
     private SpriteComponent spriteComponent;
+    [SerializeField]
+    private HealthComponent healthComponent;
+    public HealthComponent HealthComponent { get {return healthComponent;} }
 
     private void Update()
     {

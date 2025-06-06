@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5935096699976523233}
   - component: {fileID: 7517439858000577424}
   - component: {fileID: 1340082047127494230}
+  - component: {fileID: 6648575135879495686}
   m_Layer: 7
   m_Name: CarrotEnemy
   m_TagString: Untagged
@@ -133,6 +134,7 @@ MonoBehaviour:
   movementComponent: {fileID: 5935096699976523233}
   attackComponent: {fileID: 7517439858000577424}
   spriteComponent: {fileID: 1340082047127494230}
+  healthComponent: {fileID: 0}
 --- !u!114 &5935096699976523233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +177,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1102129531953382683}
+--- !u!114 &6648575135879495686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540508192861471725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d70336930f5d614387db741ec9f70b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  health: 5
 --- !u!1 &8251711199135940762
 GameObject:
   m_ObjectHideFlags: 0

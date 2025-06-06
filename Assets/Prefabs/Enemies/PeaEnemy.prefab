@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8244462672135064465}
   - component: {fileID: 1821046027227160054}
   - component: {fileID: 5056817840294215146}
+  - component: {fileID: 1418888043510875213}
   m_Layer: 0
   m_Name: PeaEnemy
   m_TagString: Untagged
@@ -116,6 +117,7 @@ MonoBehaviour:
   movementComponent: {fileID: 8244462672135064465}
   attackComponent: {fileID: 1821046027227160054}
   spriteComponent: {fileID: 5056817840294215146}
+  healthComponent: {fileID: 0}
 --- !u!114 &8244462672135064465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +160,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6914073410911066571}
+--- !u!114 &1418888043510875213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778985639165028199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d70336930f5d614387db741ec9f70b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  health: 1
 --- !u!1 &8462213301832733851
 GameObject:
   m_ObjectHideFlags: 0

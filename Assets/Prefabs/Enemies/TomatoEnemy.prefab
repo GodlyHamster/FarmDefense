@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 8776315762372258213}
   - component: {fileID: 6322727432455407296}
   - component: {fileID: 1757518085252066887}
+  - component: {fileID: 3676572331794834446}
   m_Layer: 0
   m_Name: TomatoEnemy
   m_TagString: Untagged
@@ -226,6 +227,7 @@ MonoBehaviour:
   movementComponent: {fileID: 8776315762372258213}
   attackComponent: {fileID: 6322727432455407296}
   spriteComponent: {fileID: 1757518085252066887}
+  healthComponent: {fileID: 0}
 --- !u!114 &8776315762372258213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,3 +269,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6559841613522851258}
+--- !u!114 &3676572331794834446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669757216920721721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d70336930f5d614387db741ec9f70b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  health: 20

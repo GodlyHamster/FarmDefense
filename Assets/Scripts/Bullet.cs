@@ -1,3 +1,4 @@
+using Assets.Scripts.Characters;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -30,8 +31,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        IHealth healthComponent = collider.gameObject.GetComponent(typeof(IHealth)) as IHealth;
-        if (healthComponent != null)
+        if (collider.gameObject.TryGetComponent<HealthComponent>(out HealthComponent healthComponent))
         {
             healthComponent.Hit(hitInfo);
         }
