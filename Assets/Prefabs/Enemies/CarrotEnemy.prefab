@@ -134,7 +134,7 @@ MonoBehaviour:
   movementComponent: {fileID: 5935096699976523233}
   attackComponent: {fileID: 7517439858000577424}
   spriteComponent: {fileID: 1340082047127494230}
-  healthComponent: {fileID: 0}
+  healthComponent: {fileID: 6648575135879495686}
 --- !u!114 &5935096699976523233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   health: 5
+  destroyOnDeath: 1
 --- !u!1 &8251711199135940762
 GameObject:
   m_ObjectHideFlags: 0

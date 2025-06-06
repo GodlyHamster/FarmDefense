@@ -40,7 +40,7 @@ public class CropManager : MonoBehaviour
         GameObject cropObject = Instantiate(cropPrefab, grid.GetCellCenterWorld((Vector3Int)pos), Quaternion.identity);
         Crop crop = new Crop(cropType, cropObject);
         plantedCrops.Add(pos, crop);
-        OnFarmUpdated.Invoke();
+        OnFarmUpdated?.Invoke();
         return true;
     }
 
@@ -60,8 +60,16 @@ public class CropManager : MonoBehaviour
             ItemDropManager.instance.HandleLootTableDrop(harvestedCrop.cropType.lootTable, (Vector3Int)pos);
             Destroy(harvestedCrop.linkedObject);
             plantedCrops.Remove(pos);
-            OnFarmUpdated.Invoke();
+            OnFarmUpdated?.Invoke();
         }
+    }
+
+    public void DestroyCrop(Vector2Int pos)
+    {
+        if (!plantedCrops.ContainsKey(pos)) return;
+        Destroy(plantedCrops[pos].linkedObject);
+        plantedCrops.Remove(pos);
+        OnFarmUpdated?.Invoke();
     }
 
     private void Update()
