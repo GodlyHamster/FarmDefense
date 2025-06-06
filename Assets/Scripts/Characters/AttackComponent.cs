@@ -14,9 +14,9 @@ namespace Assets.Scripts.Characters
         private int damage;
         public int Damage { get { return damage; } }
 
-        public void Attack(IHealth target, HitInfo hit)
+        public void Attack(IHealth target)
         {
-            target.Hit(hit);
+            target.Hit(new HitInfo(damage));
         }
     }
 }

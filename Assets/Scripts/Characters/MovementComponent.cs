@@ -7,17 +7,31 @@ namespace Assets.Scripts.Characters
     public class MovementComponent
     {
         [SerializeField]
-        private float moveSpeed = 1f;
+        private float accelleration = 1f;
+        [SerializeField]
+        private float maxSpeed = 2f;
+
+        private Rigidbody2D rb;
+        public Vector2 Velocity { get { return rb.linearVelocity; } }
+
+        public void Initialize(Rigidbody2D rb)
+        {
+            this.rb = rb;
+        }
 
         public void Move(Transform transform, Vector3 displace)
         {
-            transform.position += displace.normalized * moveSpeed * Time.deltaTime;
+            transform.position += displace.normalized * accelleration * Time.deltaTime;
         }
 
-        public void MoveTowards(Transform transform, Vector3 destination)
+        public void MoveTowards(Vector2 destination)
         {
-            Vector3 moveDirection = (destination - transform.position).normalized;
-            transform.position += moveDirection * moveSpeed * Time.deltaTime;
+            Vector2 moveDirection = (destination - rb.position).normalized;
+            rb.linearVelocity += moveDirection * accelleration * Time.deltaTime;
+            if (rb.linearVelocity.magnitude > maxSpeed)
+            {
+                rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
+            }
         }
 
         public void SetPos(Transform transform, Vector3 position)
