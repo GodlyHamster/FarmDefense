@@ -4,32 +4,17 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     [SerializeField]
-    protected MovementComponent movementComponent = new MovementComponent();
+    private MovementComponent movementComponent;
     [SerializeField]
-    protected AttackComponent attackComponent = new AttackComponent();
+    private AttackComponent attackComponent;
+    public AttackComponent AttackComponent { get { return attackComponent; } }
     [SerializeField]
-    protected SpriteComponent spriteComponent = new SpriteComponent();
+    private SpriteComponent spriteComponent;
 
-    private void Awake()
+    private void Update()
     {
-        movementComponent.Initialize(GetComponent<Rigidbody2D>());
-    }
-
-    void Update()
-    {
-        movementComponent.MoveTowards(attackComponent.Target.position);
-        spriteComponent.UpdateSprite(movementComponent.Velocity);
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<Player>(out Player player))
-        {
-            if (player is IHealth)
-            {
-                attackComponent.Attack(player as IHealth);
-            }
-        }
+        movementComponent?.UpdateMovement(this);
+        attackComponent?.UpdateComponent();
+        spriteComponent?.UpdateSprite(movementComponent.Velocity);
     }
 }

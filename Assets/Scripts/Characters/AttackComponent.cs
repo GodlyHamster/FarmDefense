@@ -4,15 +4,20 @@ using UnityEngine;
 namespace Assets.Scripts.Characters
 {
     [Serializable]
-    public class AttackComponent
+    public class AttackComponent : MonoBehaviour
     {
         [SerializeField]
-        private Transform target;
-        public Transform Target { get { return target; } }
+        protected Vector2 target;
+        public Vector2 Target { get { return target; } }
 
         [SerializeField]
         private int damage;
         public int Damage { get { return damage; } }
+
+        public virtual void UpdateComponent()
+        {
+            Debug.Log("Updating attack");
+        }
 
         public void Attack(IHealth target)
         {

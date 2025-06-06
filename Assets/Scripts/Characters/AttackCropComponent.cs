@@ -1,8 +1,9 @@
 using UnityEngine;
+using Assets.Scripts.Characters;
 
-public class AttackCropComponent
+public class AttackCropComponent : AttackComponent
 {
-    public void Initialize()
+    private void Start()
     {
         CropManager.OnFarmUpdated += UpdateAttackTarget;
     }

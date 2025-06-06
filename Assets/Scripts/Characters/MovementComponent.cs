@@ -3,8 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Characters
 {
-    [Serializable]
-    public class MovementComponent
+    public class MovementComponent : MonoBehaviour
     {
         [SerializeField]
         private float accelleration = 1f;
@@ -14,14 +13,15 @@ namespace Assets.Scripts.Characters
         private Rigidbody2D rb;
         public Vector2 Velocity { get { return rb.linearVelocity; } }
 
-        public void Initialize(Rigidbody2D rb)
+
+        private void Awake()
         {
-            this.rb = rb;
+            rb = GetComponent<Rigidbody2D>();
         }
 
-        public void Move(Transform transform, Vector3 displace)
+        public virtual void UpdateMovement(EnemyBase enemybase)
         {
-            transform.position += displace.normalized * accelleration * Time.deltaTime;
+            Debug.Log("schmooving");
         }
 
         public void MoveTowards(Vector2 destination)
@@ -34,9 +34,9 @@ namespace Assets.Scripts.Characters
             }
         }
 
-        public void SetPos(Transform transform, Vector3 position)
+        public void SetPos(Vector3 position)
         {
-            transform.position = position;
+            rb.position = position;
         }
     }
 }

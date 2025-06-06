@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Assets.Scripts.Characters
 {
     [Serializable]
-    public class SpriteComponent
+    public class SpriteComponent : MonoBehaviour
     {
         [SerializeField]
         private SpriteRenderer spriteRenderer;
