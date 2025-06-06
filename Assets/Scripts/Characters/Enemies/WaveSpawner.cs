@@ -16,6 +16,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     private int startAtWave = 0;
 
+    public event Action<int> OnWaveUpdated;
+
     private void Start()
     {
         StartCoroutine(SpawnWaves());
@@ -32,6 +34,7 @@ public class WaveSpawner : MonoBehaviour
                 continue;
             }
             yield return new WaitForSeconds(wave.timeUntilWave);
+            OnWaveUpdated?.Invoke(currentWave);
             foreach (EnemyWaveGroup waveGroup in wave.enemies)
             {
                 for (int i = 0; i < waveGroup.amount; i++)
