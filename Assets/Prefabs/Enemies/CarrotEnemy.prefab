@@ -9,9 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3168925388433550674}
-  - component: {fileID: 8313185169582092656}
   - component: {fileID: 2462510931127573089}
   - component: {fileID: 3415274672604419074}
+  - component: {fileID: 3540444654849833315}
+  - component: {fileID: 5935096699976523233}
+  - component: {fileID: 7517439858000577424}
+  - component: {fileID: 1340082047127494230}
+  - component: {fileID: 6648575135879495686}
   m_Layer: 7
   m_Name: CarrotEnemy
   m_TagString: Untagged
@@ -35,24 +39,6 @@ Transform:
   - {fileID: 8877454945139929129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8313185169582092656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540508192861471725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff60532654e849d448ff2362506138ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 5
-  lootTable: {fileID: 11400000, guid: e360b080686fa6c48b1db484c125e198, type: 2}
-  targetLocation: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
-  damage: 2
-  speed: 1
 --- !u!50 &2462510931127573089
 Rigidbody2D:
   serializedVersion: 5
@@ -133,6 +119,79 @@ PolygonCollider2D:
       - {x: 0.5, y: 0.3}
       - {x: 0.3, y: 0.6}
   m_UseDelaunayMesh: 0
+--- !u!114 &3540444654849833315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540508192861471725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a67dc3b83fd37479df8eaa1cb57934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementComponent: {fileID: 5935096699976523233}
+  attackComponent: {fileID: 7517439858000577424}
+  spriteComponent: {fileID: 1340082047127494230}
+  healthComponent: {fileID: 6648575135879495686}
+--- !u!114 &5935096699976523233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540508192861471725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39159572f6bade468d55d20452fec29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelleration: 7
+  maxSpeed: 1.4
+--- !u!114 &7517439858000577424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540508192861471725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb2a68cb7ed4c14aa398d1fb2968341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  damage: 2
+  player: {fileID: 0}
+--- !u!114 &1340082047127494230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540508192861471725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67347c0eb811d3d43996b9205d426b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1102129531953382683}
+--- !u!114 &6648575135879495686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540508192861471725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d70336930f5d614387db741ec9f70b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  health: 5
+  destroyOnDeath: 1
 --- !u!1 &8251711199135940762
 GameObject:
   m_ObjectHideFlags: 0

@@ -119,9 +119,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3437491747232974079}
-  - component: {fileID: 8731759965103340257}
   - component: {fileID: 7722225010985776221}
   - component: {fileID: 3262036382162485941}
+  - component: {fileID: 6627981854910613964}
+  - component: {fileID: 8776315762372258213}
+  - component: {fileID: 6322727432455407296}
+  - component: {fileID: 1757518085252066887}
+  - component: {fileID: 3676572331794834446}
   m_Layer: 0
   m_Name: TomatoEnemy
   m_TagString: Untagged
@@ -145,24 +149,6 @@ Transform:
   - {fileID: 8176283599226236332}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8731759965103340257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7669757216920721721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff60532654e849d448ff2362506138ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 25
-  lootTable: {fileID: 0}
-  targetLocation: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
-  damage: 5
-  speed: 0.8
 --- !u!50 &7722225010985776221
 Rigidbody2D:
   serializedVersion: 5
@@ -226,3 +212,75 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.75
+--- !u!114 &6627981854910613964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669757216920721721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a67dc3b83fd37479df8eaa1cb57934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementComponent: {fileID: 8776315762372258213}
+  attackComponent: {fileID: 6322727432455407296}
+  spriteComponent: {fileID: 1757518085252066887}
+  healthComponent: {fileID: 3676572331794834446}
+--- !u!114 &8776315762372258213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669757216920721721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39159572f6bade468d55d20452fec29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelleration: 3
+  maxSpeed: 0.8
+--- !u!114 &6322727432455407296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669757216920721721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e90ca323e3805479961e93fac3ca70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  damage: 2
+--- !u!114 &1757518085252066887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669757216920721721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67347c0eb811d3d43996b9205d426b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6559841613522851258}
+--- !u!114 &3676572331794834446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669757216920721721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d70336930f5d614387db741ec9f70b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  health: 20
+  destroyOnDeath: 1
