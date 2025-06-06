@@ -17,7 +17,9 @@ public class CropManager : MonoBehaviour
     [SerializeField]
     private List<Vector2Int> availabeLand = new List<Vector2Int>();
     private Dictionary<Vector2Int, Crop> plantedCrops = new Dictionary<Vector2Int, Crop>();
+    public Dictionary<Vector2Int, Crop> PlantedCrops {  get { return plantedCrops; } }
 
+    public static event Action OnFarmUpdated;
     //public static event Action<Item, int> OnCropHarvested;
 
     private void Awake()
@@ -38,6 +40,7 @@ public class CropManager : MonoBehaviour
         GameObject cropObject = Instantiate(cropPrefab, grid.GetCellCenterWorld((Vector3Int)pos), Quaternion.identity);
         Crop crop = new Crop(cropType, cropObject);
         plantedCrops.Add(pos, crop);
+        OnFarmUpdated.Invoke();
         return true;
     }
 
@@ -57,6 +60,7 @@ public class CropManager : MonoBehaviour
             ItemDropManager.instance.HandleLootTableDrop(harvestedCrop.cropType.lootTable, (Vector3Int)pos);
             Destroy(harvestedCrop.linkedObject);
             plantedCrops.Remove(pos);
+            OnFarmUpdated.Invoke();
         }
     }
 
