@@ -43,7 +43,7 @@ public class WaveSpawner : MonoBehaviour
                         UnityEngine.Random.Range(-spawningArea.extents.x, spawningArea.extents.x),
                         UnityEngine.Random.Range(-spawningArea.extents.y, spawningArea.extents.y));
                     Instantiate(waveGroup.enemyPrefab, randomSpawnPos, Quaternion.identity);
-                    yield return new WaitForSeconds(2f);
+                    yield return new WaitForSeconds(0.5f);
                 }
             }
             currentWave++;
