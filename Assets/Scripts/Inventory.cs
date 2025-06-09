@@ -7,6 +7,9 @@ public class Inventory : MonoBehaviour
     public static Inventory instance;
 
     [SerializeField]
+    private List<StartingItem> startingItems = new List<StartingItem>();
+
+    [SerializeField]
     private Transform inventoryUIContainer;
     [SerializeField]
     private GameObject inventoryItemPrefab;
@@ -18,6 +21,14 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        foreach (StartingItem item in startingItems)
+        {
+            AddItem(item.item, item.amount);
+        }
     }
 
     public void AddItem(Item item, int amount)
@@ -59,4 +70,11 @@ public class Inventory : MonoBehaviour
         }
     }
 #endif
+}
+
+[Serializable]
+public class StartingItem
+{
+    public Item item;
+    public int amount;
 }

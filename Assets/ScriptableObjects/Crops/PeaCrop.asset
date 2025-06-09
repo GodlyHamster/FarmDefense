@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PeaCrop
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 21300000, guid: 66a421568b402974d83c1372061e8242, type: 3}
-  isInfinite: 1
+  isInfinite: 0
   growthStages:
   - growthTime: 0
     crop: {fileID: 5482305790710250522, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
