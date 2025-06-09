@@ -7612,17 +7612,17 @@ MonoBehaviour:
     <enemies>k__BackingField:
     - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
       amount: 3
-  - <timeUntilWave>k__BackingField: 5
+  - <timeUntilWave>k__BackingField: 7
     <enemies>k__BackingField:
     - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
       amount: 5
-  - <timeUntilWave>k__BackingField: 10
+  - <timeUntilWave>k__BackingField: 14
     <enemies>k__BackingField:
     - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
       amount: 3
     - enemyPrefab: {fileID: 1540508192861471725, guid: 10f74ddc407b6e24d91361e08b081d4f, type: 3}
       amount: 2
-  - <timeUntilWave>k__BackingField: 7
+  - <timeUntilWave>k__BackingField: 15
     <enemies>k__BackingField:
     - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
       amount: 15
@@ -7632,7 +7632,7 @@ MonoBehaviour:
       amount: 4
     - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
       amount: 10
-  - <timeUntilWave>k__BackingField: 15
+  - <timeUntilWave>k__BackingField: 16
     <enemies>k__BackingField:
     - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
       amount: 5
