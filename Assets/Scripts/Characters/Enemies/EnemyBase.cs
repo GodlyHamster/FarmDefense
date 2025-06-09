@@ -1,4 +1,5 @@
 using Assets.Scripts.Characters;
+using System;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -14,10 +15,23 @@ public class EnemyBase : MonoBehaviour
     private HealthComponent healthComponent;
     public HealthComponent HealthComponent { get {return healthComponent;} }
 
+    public static event Action<EnemyBase> OnSpawn;
+    public static event Action<EnemyBase> OnDespawn;
+
+    private void Start()
+    {
+        OnSpawn?.Invoke(this);
+    }
+
     private void Update()
     {
         movementComponent?.UpdateMovement(this);
         attackComponent?.UpdateComponent();
         spriteComponent?.UpdateSprite(movementComponent.Velocity);
+    }
+
+    private void OnDestroy()
+    {
+        OnDespawn?.Invoke(this);
     }
 }

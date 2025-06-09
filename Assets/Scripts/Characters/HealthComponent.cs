@@ -8,8 +8,10 @@ namespace Assets.Scripts.Characters
     {
         [SerializeField]
         private int maxHealth;
+        public int MaxHealth { get { return maxHealth; } }
         [SerializeField]
         private int health;
+        public int Health { get { return health; } }
 
         [SerializeField]
         private bool destroyOnDeath = true;
