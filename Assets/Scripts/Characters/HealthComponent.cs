@@ -1,3 +1,4 @@
+using Assets.Scripts.Utility;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +13,9 @@ namespace Assets.Scripts.Characters
         [SerializeField]
         private int health;
         public int Health { get { return health; } }
+
+        [SerializeField]
+        private Transform healthbar;
 
         [SerializeField]
         private bool destroyOnDeath = true;
@@ -29,14 +33,22 @@ namespace Assets.Scripts.Characters
         {
             health += healthAmount;
             if (health > maxHealth) health = maxHealth;
-            OnHealthChanged?.Invoke(health, maxHealth);
+            UpdateHealth();
         }
 
         private void RemoveHealth(int healthAmount)
         {
             health -= healthAmount;
-            OnHealthChanged?.Invoke(health,maxHealth);
+            UpdateHealth();
             if (health <= 0) Die();
+        }
+
+        private void UpdateHealth()
+        {
+            OnHealthChanged?.Invoke(health, maxHealth);
+            if (healthbar == null) return;
+            float xScale = Utility.Utility.Remap(health, 0, maxHealth, 0, 1);
+            healthbar.localScale = new Vector3(xScale, 0.1f);
         }
 
         private void Die()
