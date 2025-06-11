@@ -37,7 +37,10 @@ public class Crop
         {
             _wateredTimer -= Time.deltaTime;
             _totalGrowthTime += Time.deltaTime;
-            if (_wateredTimer < 0) IsWatered = false;
+            if (_wateredTimer < 0)
+            {
+                IsWatered = false;
+            }
         }
 
         if (_currentGrowthStage == cropType.growthStages.Count - 1)

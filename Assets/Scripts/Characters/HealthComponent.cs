@@ -53,7 +53,7 @@ namespace Assets.Scripts.Characters
 
         private void Die()
         {
-            OnDeath.Invoke();
+            OnDeath?.Invoke();
             if (destroyOnDeath) Destroy(gameObject);
         }
 
