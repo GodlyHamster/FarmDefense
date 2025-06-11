@@ -4,7 +4,6 @@ namespace Assets.Scripts.Characters
 {
     public class AttackPlayerComponent : AttackComponent
     {
-        [SerializeField]
         private Transform player;
 
         private void Start()

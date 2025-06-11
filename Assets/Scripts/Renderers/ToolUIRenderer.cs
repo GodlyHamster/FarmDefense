@@ -38,10 +38,6 @@ public class ToolUIRenderer : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-    private void Start()
-    {
         Inventory.OnInventoryUpdated += UpdateItemCount;
     }
 

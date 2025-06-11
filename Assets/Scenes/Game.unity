@@ -8056,7 +8056,7 @@ MonoBehaviour:
   spawningArea:
     m_Center: {x: 15.5, y: 0, z: 0}
     m_Extent: {x: 1, y: 8, z: 0}
-  startAtWave: 0
+  startAtWave: 5
 --- !u!1 &1901500858
 GameObject:
   m_ObjectHideFlags: 0
