@@ -165,7 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0}
   damage: 2
-  player: {fileID: 0}
 --- !u!114 &1340082047127494230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,8 +296,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1578023753
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 5108818124733769773, guid: a398225563858714cbc8ae303d3b812a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

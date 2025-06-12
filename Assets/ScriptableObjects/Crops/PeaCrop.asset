@@ -16,13 +16,13 @@ MonoBehaviour:
   isInfinite: 0
   growthStages:
   - growthTime: 0
-    crop: {fileID: 5482305790710250522, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
-    wateredCrop: {fileID: 4153914710844903817, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
+    crop: {fileID: -6345334450054781402, guid: 4baff419aa9339f49a76e542e95a90a2, type: 3}
+    wateredCrop: {fileID: -1049224238, guid: 4baff419aa9339f49a76e542e95a90a2, type: 3}
   - growthTime: 1.5
-    crop: {fileID: -5302060627568922172, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
-    wateredCrop: {fileID: 4085327278918725248, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
+    crop: {fileID: -1325991768, guid: 4baff419aa9339f49a76e542e95a90a2, type: 3}
+    wateredCrop: {fileID: -1605819931, guid: 4baff419aa9339f49a76e542e95a90a2, type: 3}
   - growthTime: 3
-    crop: {fileID: 9094910784791944270, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
-    wateredCrop: {fileID: -8500274634009093223, guid: 14e359ecb8daa994e842f73e8f39f8a2, type: 3}
+    crop: {fileID: -1951148394, guid: 4baff419aa9339f49a76e542e95a90a2, type: 3}
+    wateredCrop: {fileID: 1476487517, guid: 4baff419aa9339f49a76e542e95a90a2, type: 3}
   dehydrationMult: 1
   lootTable: {fileID: 11400000, guid: 31b7c43d0d113d64cb0d1ed692564f12, type: 2}
