@@ -35,10 +35,19 @@ public class ToolUIRenderer : MonoBehaviour
 
     private LinkedListNode<EquipableItem> currentEquipped;
 
+    private void OnEnable()
+    {
+        Inventory.OnInventoryUpdated += UpdateItemCount;
+    }
+
+    private void OnDisable()
+    {
+        Inventory.OnInventoryUpdated -= UpdateItemCount;
+    }
+
     private void Awake()
     {
         instance = this;
-        Inventory.OnInventoryUpdated += UpdateItemCount;
     }
 
     public void UpdateSelectedTool(LinkedListNode<EquipableItem> equippedItem)
