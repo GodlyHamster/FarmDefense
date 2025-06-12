@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000007983c81
+  m_ApplyToSortingLayers: 0000000007983c81b744f1a1b34ec888
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -8053,6 +8053,18 @@ MonoBehaviour:
       amount: 7
     - enemyPrefab: {fileID: 1540508192861471725, guid: 10f74ddc407b6e24d91361e08b081d4f, type: 3}
       amount: 2
+  - <timeUntilWave>k__BackingField: 15
+    <enemies>k__BackingField:
+    - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
+      amount: 10
+    - enemyPrefab: {fileID: 1540508192861471725, guid: 10f74ddc407b6e24d91361e08b081d4f, type: 3}
+      amount: 5
+  - <timeUntilWave>k__BackingField: 15
+    <enemies>k__BackingField:
+    - enemyPrefab: {fileID: 3778985639165028199, guid: 9732a5ef3d41184449354c3fbf016bb0, type: 3}
+      amount: 20
+    - enemyPrefab: {fileID: 7669757216920721721, guid: 65d9322585b3eb74080eb2ad311c439e, type: 3}
+      amount: 4
   spawningArea:
     m_Center: {x: 15.5, y: 0, z: 0}
     m_Extent: {x: 1, y: 8, z: 0}
